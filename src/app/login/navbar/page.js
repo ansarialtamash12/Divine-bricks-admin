@@ -10,7 +10,7 @@ const NavbarLogin = () => {
       <div className="flex items-center justify-center w-full md:justify-start">
         <Link href="../../">
           <Image
-            src="/Zaddy_Logo2.png"
+            src="/darkogo.png"
             alt="Zaddy Logo"
             width={220}
             height={70}

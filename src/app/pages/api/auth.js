@@ -1,8 +1,8 @@
 'use client'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-const BASE_URL = 'https://api.zaddycare.in/api';
-export const IMAGE_BASE_URL = 'https://api.zaddycare.in/productImage';
+const BASE_URL = 'https://apis.divinebricks.com/api';
+export const IMAGE_BASE_URL = 'https://apis.divinebricks.com/productImage';
 
 const isLoggedIn = () => {
   return Cookies.get('userDetail') !== undefined

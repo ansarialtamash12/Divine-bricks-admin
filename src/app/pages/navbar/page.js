@@ -64,13 +64,14 @@ const Navbar = () => {
     <nav className="flex items-center justify-between w-full p-6 bg-white sm:p-6 md:p-4">
       <div className="flex items-center">
         <h1 className="flex items-center text-lg font-bold text-black sm:text-xl md:text-2xl">
-          <Image
-            src="/Zaddy_Logo2.png"
-            alt="Zaddy Logo"
-            width={120}
-            height={40}
-            className="object-contain mx-1 sm:mx-2 w-[100px] sm:w-[120px] md:w-[180px]"
-          />
+   <Image
+  src="/darkogo.png"
+  alt="Zaddy Logo"
+  width={120}
+  height={40}
+  unoptimized 
+  className="object-contain mx-1 sm:mx-2 w-[100px] sm:w-[120px] md:w-[180px] h-auto"
+/>
         </h1>
       </div>
 
