@@ -229,7 +229,7 @@ const SellerPage = () => {
                 setEditMode(false)
                 setFormData(INITIAL_FORM_DATA)
               }}
-              className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               + Add Seller
             </button>
@@ -243,18 +243,18 @@ const SellerPage = () => {
           onSubmit={handleSubmit}
           className="p-4 mb-4 rounded"
         >
-          <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
+          <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Seller' : 'Add Seller'}
           </h2>
           <div className="grid grid-cols-2 gap-4">
             {/* Country Dropdown */}
             <div>
-              <label className="block font-medium">Country</label>
+              <label className="block font-medium text-[#062c21]">Country</label>
               <select
                 name="country"
                 value={formData?.country?.toString() || ''}
                 onChange={handleChange}
-                className="w-full p-2 mt-2 border rounded focus:ring-2 focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
               >
                 <option value="">Select Country</option>
                 {countries.map((country) => (
@@ -264,18 +264,18 @@ const SellerPage = () => {
                 ))}
               </select>
               {errors.country && (
-                <p className="mt-1 text-sm text-red-500">{errors.country}</p>
+                <p className="mt-1 text-sm text-rose-600">{errors.country}</p>
               )}
             </div>
 
             {/* State Dropdown */}
             <div>
-              <label className="block font-medium">State</label>
+              <label className="block font-medium text-[#062c21]">State</label>
               <select
                 name="state"
                 value={formData?.state}
                 onChange={handleChange}
-                className="w-full p-2 mt-2 border rounded focus:ring-2 focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                 disabled={!formData.country}
               >
                 <option value="">Select State</option>
@@ -286,18 +286,18 @@ const SellerPage = () => {
                 ))}
               </select>
               {errors.state && (
-                <p className="mt-1 text-sm text-red-500">{errors.state}</p>
+                <p className="mt-1 text-sm text-rose-600">{errors.state}</p>
               )}
             </div>
 
             {/* City Dropdown */}
             <div>
-              <label className="block font-medium">City</label>
+              <label className="block font-medium text-[#062c21]">City</label>
               <select
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full p-2 mt-2 border rounded focus:ring-2 focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                 disabled={!formData.state}
               >
                 <option value="">Select City</option>
@@ -308,13 +308,13 @@ const SellerPage = () => {
                 ))}
               </select>
               {errors.city && (
-                <p className="mt-1 text-sm text-red-500">{errors.city}</p>
+                <p className="mt-1 text-sm text-rose-600">{errors.city}</p>
               )}
             </div>
 
             {Object.keys(INITIAL_FORM_DATA).map((key) => (
               <div key={key}>
-                <label className="block font-medium capitalize ">{key}</label>
+                <label className="block font-medium capitalize text-[#062c21]">{key}</label>
                 {key === 'active' ? (
                   <div className="flex items-center mt-4 space-x-2">
                     <input
@@ -323,9 +323,9 @@ const SellerPage = () => {
                       name="active"
                       checked={formData.active}
                       onChange={handleChange}
-                      className="w-5 h-5 "
+                      className="w-5 h-5 accent-[#062c21]"
                     />
-                    <label htmlFor="isActive" className="font-medium">
+                    <label htmlFor="isActive" className="font-medium text-[#062c21]">
                       Active
                     </label>
                   </div>
@@ -333,13 +333,13 @@ const SellerPage = () => {
                   <input
                     type="text"
                     name={key}
-                    className="w-full p-2 mt-2 border rounded focus:ring-2 focus:ring-blue-400"
+                    className="w-full p-2 mt-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                     value={formData[key]}
                     onChange={handleChange}
                   />
                 )}
                 {errors[key] && (
-                  <p className="text-sm text-red-500">{errors[key]}</p>
+                  <p className="text-sm text-rose-600">{errors[key]}</p>
                 )}
               </div>
             ))}
@@ -348,13 +348,13 @@ const SellerPage = () => {
           <div className="flex gap-2 mt-4">
             <button
               type="submit"
-              className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+              className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               {editMode ? 'Update' : 'Submit'}
             </button>
             <button
               type="button"
-              className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+              className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
               onClick={resetForm}
             >
               Cancel
@@ -365,7 +365,7 @@ const SellerPage = () => {
 
       {!showForm && (
         <>
-          {error && <p className="text-red-500">Error: {error}</p>}
+          {error && <p className="text-rose-600">Error: {error}</p>}
           <Table
             columns={[...SellerColumns, ...RegionColumns]}
             data={sellers}
@@ -376,13 +376,13 @@ const SellerPage = () => {
             renderActions={(row) => (
               <div className="flex flex-col sm:flex-row sm:gap-2">
                 <button
-                  className="w-full px-3 py-1 text-white bg-yellow-500 rounded sm:w-auto"
+                  className="w-full px-3 py-1 text-[#062c21] bg-amber-400 hover:bg-amber-500 rounded sm:w-auto font-semibold transition"
                   onClick={() => handleEdit(row)}
                 >
                   Edit
                 </button>
                 <button
-                  className="w-full px-3 py-1 mt-2 text-white bg-red-500 rounded sm:w-auto sm:mt-0"
+                  className="w-full px-3 py-1 mt-2 text-white bg-rose-600 hover:bg-rose-700 rounded sm:w-auto sm:mt-0 font-medium transition"
                   onClick={() => handleDeleteClick(row)}
                 >
                   Delete

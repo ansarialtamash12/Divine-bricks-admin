@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -41,17 +40,17 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
     const renderDescription = (value) => {
         if (!value) return '';
         return (
-            <div className="max-w-[230px] overflow-hidden text-ellipsis whitespace-nowrap" title={value}>
+            <div className="max-w-[230px] overflow-hidden text-ellipsis whitespace-nowrap text-[#062c21]" title={value}>
                 {value}
             </div>
         );
     };
 
     return (
-        <div className="p-4 mt-6 rounded-md shadow-custom-1">
+        <div className="p-4 mt-6 rounded-md shadow-sm border border-slate-200 bg-white">
             {/* Search */}
             <div className="flex flex-col items-center justify-end mb-4 sm:flex-row">
-                <h1 className="flex-1 text-xl font-semibold text-center text-gray-800 text-list-label sm:text-left sm:mr-4">
+                <h1 className="flex-1 text-xl font-semibold text-center text-[#062c21] sm:text-left sm:mr-4">
                     Product
                 </h1>
                 <input
@@ -59,23 +58,25 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                     placeholder="Search..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full p-2 mt-2 border rounded-md sm:mt-0 sm:w-64 border-customBlue focus:outline-none focus:border-customBlue"
+                    className="w-full p-2 mt-2 border border-slate-300 rounded-md sm:mt-0 sm:w-64 focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                 />
             </div>
 
             {/* desktop Table */}
             <div className="hidden overflow-x-auto md:block">
-                <table className="min-w-full border border-collapse border-gray-300">
+                <table className="min-w-full border border-collapse border-slate-200">
                     <thead>
-                        <tr className="bg-action">
+                        <tr className="bg-[#062c21]">
                             {(onEdit || onDelete) && (
-                                <th className="px-6 py-3 text-white border border-gray-300">Actions</th>
+                                <th className="px-6 py-3 text-amber-300 border border-slate-200">
+                                    Actions
+                                </th>
                             )}
                             {columns?.map((col) => (
                                 <th
                                     key={col.key}
                                     onClick={() => sortData(col.key)}
-                                    className="px-6 py-3 text-white border border-gray-300 cursor-pointer hover:bg-blue-600"
+                                    className="px-6 py-3 border border-slate-200 cursor-pointer bg-[#062c21] text-amber-300 hover:bg-[#093d2e] transition-colors"
                                 >
                                     <div className="flex items-center justify-center">
                                         {col.label}
@@ -91,25 +92,31 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                     </thead>
                     <tbody>
                         {currentRows.map((row) => (
-                            <tr key={row.id} className="hover:bg-gray-100">
+                            <tr key={row.id} className="hover:bg-emerald-50/60 transition-colors">
                                 {(onEdit || onDelete) && (
-                                    <td className="px-6 py-4 text-center border border-gray-300">
+                                    <td className="px-6 py-4 text-center border border-slate-200">
                                         <div className="flex items-center justify-center gap-2">
                                             {onEdit && (
                                                 <button
-                                                    onClick={() => onEdit(row)}
-                                                    className="px-4 py-2 text-white bg-yellow-500 rounded-md hover:bg-yellow-600"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        onEdit(row);
+                                                    }}
+                                                    className="px-4 py-2 text-[#062c21] bg-amber-400 rounded-md hover:bg-amber-500 font-semibold transition"
                                                 >
                                                     Edit
                                                 </button>
                                             )}
                                             {onDelete && (
                                                 <button
-                                                    onClick={() => row.active && onDelete(row)}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (row.active) onDelete(row);
+                                                    }}
                                                     disabled={!row.active}
-                                                    className={`px-4 py-2 rounded-md ${row.active
-                                                        ? "bg-red-500 hover:bg-red-600 text-white"
-                                                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                                    className={`px-4 py-2 rounded-md font-medium transition ${row.active
+                                                        ? "bg-rose-600 hover:bg-rose-700 text-white"
+                                                        : "bg-slate-200 text-slate-400 cursor-not-allowed"
                                                         }`}
                                                 >
                                                     Delete
@@ -122,7 +129,7 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                                     <td
                                         key={col.key}
                                         onClick={() => onRowClick(row)}
-                                        className="px-6 py-4 text-center border border-gray-300 cursor-pointer"
+                                        className="px-6 py-4 text-center border border-slate-200 text-[#062c21] cursor-pointer"
                                     >
                                         {col.key === "image" || col.key === "imageUrl" ? (
                                             <button
@@ -130,14 +137,15 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                                                     e.stopPropagation();
                                                     onAddImage(row);
                                                 }}
-                                                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                                                className="px-4 py-2 text-amber-300 bg-[#062c21] rounded-md hover:bg-[#093d2e] font-semibold transition"
                                             >
                                                 Add Image
                                             </button>
                                         ) : col.key === "username" ? (
                                             <Link
                                                 href={`/pages/customer-management/customer-order-activity?username=${row[col.key]}`}
-                                                className="text-blue-500 hover:underline"
+                                                className="text-[#062c21] font-semibold hover:underline"
+                                                onClick={(e) => e.stopPropagation()}
                                             >
                                                 {row[col.key]}
                                             </Link>
@@ -162,26 +170,27 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                     <div
                         key={row.id}
                         onClick={() => onRowClick(row)}
-                        className="p-4 bg-white border rounded-lg shadow-sm"
+                        className="p-4 bg-white border border-slate-200 rounded-lg shadow-sm"
                     >
                         {columns.map((col) => (
                             <div key={col.key} className="flex justify-between py-1">
-                                <span className="font-medium text-gray-600">{col.label}:</span>
-                                <span className="text-right text-gray-800">
+                                <span className="font-medium text-slate-500">{col.label}:</span>
+                                <span className="text-right text-[#062c21]">
                                     {col.key === "image" || col.key === "imageUrl" ? (
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 onAddImage(row);
                                             }}
-                                            className="px-3 py-1 text-sm text-white bg-blue-500 rounded hover:bg-blue-600"
+                                            className="px-3 py-1 text-sm text-amber-300 bg-[#062c21] rounded hover:bg-[#093d2e] font-semibold transition"
                                         >
                                             Add Image
                                         </button>
                                     ) : col.key === "username" ? (
                                         <Link
                                             href={`/pages/customer-management/customer-order-activity?username=${row[col.key]}`}
-                                            className="text-blue-500 hover:underline"
+                                            className="text-[#062c21] font-semibold hover:underline"
+                                            onClick={(e) => e.stopPropagation()}
                                         >
                                             {row[col.key]}
                                         </Link>
@@ -205,7 +214,7 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                                             e.stopPropagation();
                                             onEdit(row);
                                         }}
-                                        className="px-3 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600"
+                                        className="px-3 py-1 text-sm text-[#062c21] bg-amber-400 rounded hover:bg-amber-500 font-semibold transition"
                                     >
                                         Edit
                                     </button>
@@ -217,9 +226,9 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                                             if (row.active) onDelete(row);
                                         }}
                                         disabled={!row.active}
-                                        className={`px-3 py-1 text-sm rounded ${row.active
-                                            ? "bg-red-500 hover:bg-red-600 text-white"
-                                            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                        className={`px-3 py-1 text-sm rounded font-medium transition ${row.active
+                                            ? "bg-rose-600 hover:bg-rose-700 text-white"
+                                            : "bg-slate-200 text-slate-400 cursor-not-allowed"
                                             }`}
                                     >
                                         Delete
@@ -233,11 +242,11 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
 
             {/* No data */}
             {filteredData.length === 0 && (
-                <p className="mt-4 text-center">No data found!</p>
+                <p className="mt-4 text-center text-slate-500">No data found!</p>
             )}
 
             {/* Pagination */}
-            <div className="flex items-center justify-center mt-4 space-x-8">
+            <div className="flex items-center justify-center mt-4 space-x-8 text-[#062c21]">
                 <div className="flex items-center space-x-2">
                     <span>Rows per page:</span>
                     <select
@@ -246,7 +255,7 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                             setRowsPerPage(Number(e.target.value));
                             setCurrentPage(1);
                         }}
-                        className="p-1 border rounded-md focus:outline-none"
+                        className="p-1 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                     >
                         {[5, 10, 25].map((size) => (
                             <option key={size} value={size}>
@@ -270,9 +279,9 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                     <button
                         onClick={() => setCurrentPage(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className={`px-3 py-1 border rounded-md ${currentPage === 1
-                            ? "text-gray-400 border-gray-300"
-                            : "hover:bg-gray-200"
+                        className={`px-3 py-1 border rounded-md transition ${currentPage === 1
+                            ? "text-slate-400 border-slate-200 bg-slate-50 cursor-not-allowed"
+                            : "border-slate-300 hover:bg-emerald-50"
                             }`}
                     >
                         ◄
@@ -280,9 +289,9 @@ const ProductTable = ({ columns, data, onEdit, onDelete, onAddImage, onRowClick 
                     <button
                         onClick={() => setCurrentPage(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className={`px-3 py-1 border rounded-md ${currentPage === totalPages
-                            ? "text-gray-400 border-gray-300"
-                            : "hover:bg-gray-200"
+                        className={`px-3 py-1 border rounded-md transition ${currentPage === totalPages
+                            ? "text-slate-400 border-slate-200 bg-slate-50 cursor-not-allowed"
+                            : "border-slate-300 hover:bg-emerald-50"
                             }`}
                     >
                         ►

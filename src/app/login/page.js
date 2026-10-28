@@ -56,15 +56,15 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full bg-gray-100">
-      <div className="p-6 bg-primary rounded-lg border shadow-1xl w-full max-w-96 ">
-        <h2 className="mb-4 text-2xl font-bold text-center">Admin Login</h2>
+    <div className="flex items-center justify-center w-full bg-[#faf9f6]">
+      <div className="p-6 bg-white rounded-lg border border-slate-200 shadow-1xl w-full max-w-96 ">
+        <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">Admin Login</h2>
         <form onSubmit={handleLogin}>
           {error && (
-            <p className="mb-3 text-red-600 font-semibold text-sm">{error}</p>
+            <p className="mb-3 text-rose-600 font-semibold text-sm">{error}</p>
           )}
 
-          <label htmlFor="username" className="block text-xl font-medium text-black">
+          <label htmlFor="username" className="block text-xl font-medium text-[#062c21]">
             User Name
           </label>
           <input
@@ -73,11 +73,11 @@ const AdminLogin = () => {
             placeholder="Enter Your User Name"
             value={username}
             onChange={(e) => handleChange(e, setUsername, 'username')}
-            className={`w-full px-3 py-2 mt-2 mb-1 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.username ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-3 py-2 mt-2 mb-1 border rounded-md focus:ring-2 focus:ring-[#062c21] focus:outline-none ${errors.username ? 'border-rose-500' : 'border-slate-300'}`}
           />
-          {errors.username && <p className="text-sm text-red-500">{errors.username}</p>}
+          {errors.username && <p className="text-sm text-rose-600">{errors.username}</p>}
 
-          <label htmlFor="password" className="block mt-2 text-xl font-medium text-black">
+          <label htmlFor="password" className="block mt-2 text-xl font-medium text-[#062c21]">
             Password
           </label>
           <div className="relative mt-2">
@@ -87,12 +87,12 @@ const AdminLogin = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => handleChange(e, setPassword, 'password')}
-              className={`w-full px-3 py-2 pr-10 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-3 py-2 pr-10 border rounded-md focus:ring-2 focus:ring-[#062c21] focus:outline-none ${errors.password ? 'border-rose-500' : 'border-slate-300'}`}
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-2 flex items-center text-gray-600"
+              className="absolute inset-y-0 right-2 flex items-center text-slate-500"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? (
@@ -102,21 +102,21 @@ const AdminLogin = () => {
               )}
             </button>
           </div>
-          {errors.password && <p className="text-sm text-red-500">{errors.password}</p>}
+          {errors.password && <p className="text-sm text-rose-600">{errors.password}</p>}
 
           <button
             type="submit"
-            className="flex items-center justify-center w-full py-2 mt-4 text-white bg-submit-btn rounded-full hover:bg-green-600"
+            className="flex items-center justify-center w-full py-2 mt-4 text-amber-300 bg-[#062c21] rounded-full hover:bg-[#093d2e] font-semibold transition"
           >
             {loading && <Spinner />}
             {loading ? "Login..." : "Login"}
           </button>
 
-          <p className="mt-4 text-center text-blue-600 cursor-pointer text-1xl hover:underline">
+          {/* <p className="mt-4 text-center text-amber-700 cursor-pointer text-1xl hover:text-[#062c21] hover:underline">
             <Link href="/login/register">Don&rsquo;t have an Account? Register</Link>
-          </p>
+          </p> */}
           <div className="flex justify-center mt-2">
-            <Link href="/login/forgot-password" className="text-blue-600 hover:underline" passHref>
+            <Link href="/login/forgot-password" className="text-amber-700 hover:text-[#062c21] hover:underline" passHref>
               Forgot Password?
             </Link>
           </div>

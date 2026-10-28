@@ -16,7 +16,7 @@ const CustomerContactUs = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full mt-5 mb-6">
-        <h1 className="text-3xl font-semibold text-gray-700">Loading...</h1>
+        <h1 className="text-3xl font-semibold text-slate-500">Loading...</h1>
       </div>
     );
   }
@@ -24,7 +24,7 @@ const CustomerContactUs = () => {
   if (error) {
     return (
       <div className="flex items-center justify-center h-full mt-5 mb-6">
-        <h1 className="text-3xl font-semibold text-red-500">Error: {error}</h1>
+        <h1 className="text-3xl font-semibold text-rose-600">Error: {error}</h1>
       </div>
     );
   }

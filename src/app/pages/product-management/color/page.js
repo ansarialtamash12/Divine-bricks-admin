@@ -125,7 +125,7 @@ const ColorPage = () => {
   }
 
   if (error) {
-    return <p className="p-4 text-red-500">Error: {error}</p>
+    return <p className="p-4 text-rose-600">Error: {error}</p>
   }
 
   return (
@@ -139,7 +139,7 @@ const ColorPage = () => {
             setFormErrors({ name: '' })
             setActive(true)
           }}
-          className="block px-4 py-2 mx-auto mt-3 text-white rounded-md bg-add-btn sm:mx-0"
+          className="block px-4 py-2 mx-auto mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold sm:mx-0"
         >
           + Add Color
         </button>
@@ -147,13 +147,13 @@ const ColorPage = () => {
       )}
 
       {showForm && (
-        <div className="p-4 mb-4 bg-gray-100 rounded shadow-md">
-          <h2 className="mb-2 text-lg font-bold text-center text-add-label">
+        <div className="p-4 mb-4 bg-slate-50 border border-slate-200 rounded shadow-md">
+          <h2 className="mb-2 text-lg font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Color' : 'Add New Color'}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block font-medium">Color Name</label>
+              <label className="block font-medium text-[#062c21]">Color Name</label>
               <input
                 type="text"
                 value={name}
@@ -162,10 +162,10 @@ const ColorPage = () => {
                   setFormErrors((prev) => ({ ...prev, name: '' }))
                 }}
                 placeholder="Enter Color Name"
-                className="w-full p-2 mt-2 border rounded focus:ring-2 focus:ring-blue-400"
+                className="w-full p-2 mt-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
               />
               {formErrors.name && (
-                <p className="text-sm text-red-500">{formErrors.name}</p>
+                <p className="text-sm text-rose-600">{formErrors.name}</p>
               )}
             </div>
 
@@ -176,9 +176,9 @@ const ColorPage = () => {
                   id="isActive"
                   checked={active}
                   onChange={(e) => setActive(e.target.checked)}
-                  className="w-5 h-5"
+                  className="w-5 h-5 accent-[#062c21]"
                 />
-                <label htmlFor="isActive" className="font-medium">
+                <label htmlFor="isActive" className="font-medium text-[#062c21]">
                   Active
                 </label>
               </div>
@@ -187,13 +187,13 @@ const ColorPage = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+                className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
               >
                 {editMode ? 'Update' : 'Submit'}
               </button>
               <button
                 type="button"
-                className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
                 onClick={resetForm}
               >
                 Cancel
@@ -206,7 +206,7 @@ const ColorPage = () => {
       {!showForm && (
         <>
           {color.length === 0 ? (
-            <p className="text-gray-500">No colors available.</p>
+            <p className="text-slate-500">No colors available.</p>
           ) : (
             <Table
               columns={Columns}

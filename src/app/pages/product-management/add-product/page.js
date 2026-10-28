@@ -44,6 +44,7 @@ const AddProduct = ({ onClose, productId }) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [subTitle, setSubTitle] = useState('')
+  const [adress, setAdress] = useState('')
   const [stock, setstock] = useState('')
   const [price, setprice] = useState('')
   const [discountPrice, setdiscountPrice] = useState('')
@@ -144,6 +145,7 @@ const validateForm = () => {
     if (!title.trim()) newErrors.title = 'Title is required'
     if (!description.trim()) newErrors.description = 'Description is required'
     if (!subTitle.trim()) newErrors.subTitle = 'Subtitle is required'
+    if(!adress.trim()) newErrors.adress = 'Address is required'
     if (!image) newErrors.image = 'Image is required'
 
     // Numeric validations
@@ -233,6 +235,7 @@ const validateForm = () => {
     const productData = {
       title,
       subTitle,
+      adress,
       description,
       stock,
       price,
@@ -260,7 +263,8 @@ const validateForm = () => {
       typeOfProductName: selectedtypeofProductId.label,
       isNewArrial,
       isBestSeller,
-      isRecommended
+      isRecommended,
+      
     }
     try {
       const response = await dispatch(addProduct(productData)).unwrap();
@@ -334,11 +338,11 @@ const validateForm = () => {
 
   return (
     <div className="p-4 mt-5 mb-6 bg-white rounded-lg shadow-md">
-      <div className="flex mb-4 overflow-x-auto border-b border-gray-300 sm:overflow-x-hidden">
+      <div className="flex mb-4 overflow-x-auto border-b border-slate-300 sm:overflow-x-hidden">
         <div
           className={`cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap ${activeTab === 'addProduct'
-            ? 'border-b-2 border-blue-500 text-blue-500'
-            : 'text-gray-600 hover:text-blue-500'
+            ? 'border-b-2 border-[#062c21] text-[#062c21]'
+            : 'text-slate-600 hover:text-[#062c21]'
             }`}
           onClick={() => setActiveTab('addProduct')}
         >
@@ -348,10 +352,10 @@ const validateForm = () => {
         {/* Add Specification Tab */}
         <div
           className={`cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap ${activeTab === 'addSimilarProduct'
-            ? 'border-b-2 border-blue-500 text-blue-500'
+            ? 'border-b-2 border-[#062c21] text-[#062c21]'
             : isSimilarProductTabEnabled
-              ? 'text-gray-600 hover:text-blue-500'
-              : 'text-gray-400 cursor-not-allowed'
+              ? 'text-slate-600 hover:text-[#062c21]'
+              : 'text-slate-400 cursor-not-allowed'
             }`}
           onClick={() => {
             if (isSimilarProductTabEnabled) {
@@ -365,10 +369,10 @@ const validateForm = () => {
         {/* Add FAQ Tab */}
         <div
           className={`cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap ${activeTab === 'addFaq'
-            ? 'border-b-2 border-blue-500 text-blue-500'
+            ? 'border-b-2 border-[#062c21] text-[#062c21]'
             : isFaqTabEnabled
-              ? 'text-gray-600 hover:text-blue-500'
-              : 'text-gray-400 cursor-not-allowed'
+              ? 'text-slate-600 hover:text-[#062c21]'
+              : 'text-slate-400 cursor-not-allowed'
             }`}
           onClick={() => {
             if (isFaqTabEnabled) {
@@ -381,10 +385,10 @@ const validateForm = () => {
 
         <div
           className={`cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap ${activeTab === 'addSkinInsight'
-            ? 'border-b-2 border-blue-500 text-blue-500'
+            ? 'border-b-2 border-[#062c21] text-[#062c21]'
             : isSkinInsightEnabled
-              ? 'text-gray-600 hover:text-blue-500'
-              : 'text-gray-400 cursor-not-allowed'
+              ? 'text-slate-600 hover:text-[#062c21]'
+              : 'text-slate-400 cursor-not-allowed'
             }`}
           onClick={() => {
             if (isSkinInsightEnabled) {
@@ -397,10 +401,10 @@ const validateForm = () => {
         
          <div
           className={`cursor-pointer whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeTab === 'addProductMetaTag'
-            ? 'border-b-2 border-blue-500 text-blue-500'
+            ? 'border-b-2 border-[#062c21] text-[#062c21]'
             : isProductMetaTagEnabled
-              ? 'text-gray-600 hover:text-blue-500'
-              : 'text-gray-400 cursor-not-allowed'
+              ? 'text-slate-600 hover:text-[#062c21]'
+              : 'text-slate-400 cursor-not-allowed'
             }`}
           onClick={() => {
             if (isProductMetaTagEnabled) {
@@ -415,16 +419,16 @@ const validateForm = () => {
 
       {activeTab === 'addProduct' ? (
         <div>
-          <h3 className="mb-10 text-2xl font-bold text-center text-add-label">Add Product</h3>
+          <h3 className="mb-10 text-2xl font-bold text-center text-[#062c21]">Add Product</h3>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div>
               <label className="block text-sm font-medium">Category</label>
               <Select options={categoryOptions} value={selectedCategory} onChange={handleCategoryChange} placeholder="Select Category" className="w-full mt-2" />
-              {errors.selectedCategory && <p className="mt-1 text-sm text-red-500">{errors.selectedCategory}</p>}
+              {errors.selectedCategory && <p className="mt-1 text-sm text-rose-600">{errors.selectedCategory}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium">
-                Subcategory <span className="text-red-500">*</span>
+                Subcategory <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={subCategoryOptions}
@@ -440,13 +444,13 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedSubCategory && (
-                <p className="text-xs text-red-500">{errors.selectedSubCategory}</p>
+                <p className="text-xs text-rose-600">{errors.selectedSubCategory}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Subcategory Type <span className="text-red-500">*</span>
+                Subcategory Type <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={subCategoryTypeOptions}
@@ -462,7 +466,7 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedSubCategoryType && (
-                <p className="text-xs text-red-500">
+                <p className="text-xs text-rose-600">
                   {errors.selectedSubCategoryType}
                 </p>
               )}
@@ -470,7 +474,7 @@ const validateForm = () => {
 
             <div>
               <label className="block text-sm font-medium">
-                Seller <span className="text-red-500">*</span>
+                Seller <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={sellerOptions}
@@ -485,13 +489,13 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedSeller && (
-                <p className="text-xs text-red-500">{errors.selectedSeller}</p>
+                <p className="text-xs text-rose-600">{errors.selectedSeller}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Steps <span className="text-red-500">*</span>
+                Steps <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={stepsOptions}
@@ -506,13 +510,13 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedstepsId && (
-                <p className="text-xs text-red-500">{errors.selectedstepsId}</p>
+                <p className="text-xs text-rose-600">{errors.selectedstepsId}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Type Of Product <span className="text-red-500">*</span>
+                Type Of Product <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={typeOfProductOptions}
@@ -527,13 +531,13 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedtypeofProductId && (
-                <p className="text-xs text-red-500">{errors.selectedtypeofProductId}</p>
+                <p className="text-xs text-rose-600">{errors.selectedtypeofProductId}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Size <span className="text-red-500">*</span>
+                Size <span className="text-rose-600">*</span>
               </label>
               <Select
                 options={sizeOptions}
@@ -548,7 +552,7 @@ const validateForm = () => {
                 className="w-full mt-2"
               />
               {errors.selectedSize && (
-                <p className="text-xs text-red-500">{errors.selectedSize}</p>
+                <p className="text-xs text-rose-600">{errors.selectedSize}</p>
               )}
             </div>
             <div>
@@ -561,7 +565,7 @@ const validateForm = () => {
             </div>
             <div>
               <label className="block text-sm font-medium">
-                Title <span className="text-red-500">*</span>
+                Title <span className="text-rose-600">*</span>
               </label>
               <input
                 type="text"
@@ -573,16 +577,16 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="Enter Title"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.title ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.title ? 'border-rose-500' : ''}`}
               />
               {errors.title && (
-                <p className="text-xs text-red-500">{errors.title}</p>
+                <p className="text-xs text-rose-600">{errors.title}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Subtitle <span className="text-red-500">*</span>
+                Subtitle <span className="text-rose-600">*</span>
               </label>
               <input
                 type="text"
@@ -594,16 +598,33 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="Enter Subtitle"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.subTitle ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.subTitle ? 'border-rose-500' : ''}`}
               />
               {errors.subTitle && (
-                <p className="text-xs text-red-500">{errors.subTitle}</p>
+                <p className="text-xs text-rose-600">{errors.subTitle}</p>
               )}
+            </div>
+
+           <div>
+            <label className="block text-sm font-medium">
+              Address <span className="text-rose-600">*</span>
+            </label>
+            <input type="text"
+            value={adress}
+            onChange={(e) => {
+              setAdress(e.target.value)
+              if(errors.adress) {
+                setErrors((prev) => ({ ...prev, adress: ''}))
+              }
+            }}
+            placeholder="Enter Address"
+             className={`w-full px-3 py-2 mt-2 border rounded ${errors.subTitle ? 'border-rose-500' : ''}`}
+              />
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Stock Quantity <span className="text-red-500">*</span>
+                Stock Quantity <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
@@ -615,48 +636,48 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="Stock Quantity"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.stock ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.stock ? 'border-rose-500' : ''}`}
               />
               {errors.stock && (
-                <p className="text-xs text-red-500">{errors.stock}</p>
+                <p className="text-xs text-rose-600">{errors.stock}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                MRP <span className="text-red-500">*</span>
+                MRP <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
                 value={mrp}
                 onChange={handleMrpChange}
                 placeholder="MRP"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.mrp ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.mrp ? 'border-rose-500' : ''}`}
               />
               {errors.mrp && (
-                <p className="text-xs text-red-500">{errors.mrp}</p>
+                <p className="text-xs text-rose-600">{errors.mrp}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Price <span className="text-red-500">*</span>
+                Price <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
                 value={price}
                 onChange={handlePriceChange}
                 placeholder="Price"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.price ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.price ? 'border-rose-500' : ''}`}
               />
               {errors.price && (
-                <p className="text-xs text-red-500">{errors.price}</p>
+                <p className="text-xs text-rose-600">{errors.price}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Discount Price <span className="text-red-500">*</span>
+                Discount Price <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
@@ -673,7 +694,7 @@ const validateForm = () => {
 
             <div>
               <label className="block text-sm font-medium">
-                Rating <span className="text-red-500">*</span>
+                Rating <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
@@ -685,16 +706,16 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="Rating"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.rating ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.rating ? 'border-rose-500' : ''}`}
               />
               {errors.rating && (
-                <p className="text-xs text-red-500">{errors.rating}</p>
+                <p className="text-xs text-rose-600">{errors.rating}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                No. of Ratings <span className="text-red-500">*</span>
+                No. of Ratings <span className="text-rose-600">*</span>
               </label>
               <input
                 type="number"
@@ -706,16 +727,16 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="No. of Ratings"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.noOfRating ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.noOfRating ? 'border-rose-500' : ''}`}
               />
               {errors.noOfRating && (
-                <p className="text-xs text-red-500">{errors.noOfRating}</p>
+                <p className="text-xs text-rose-600">{errors.noOfRating}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Description <span className="text-red-500">*</span>
+                Description <span className="text-rose-600">*</span>
               </label>
               <input
                 type="text"
@@ -727,16 +748,16 @@ const validateForm = () => {
                   }
                 }}
                 placeholder="Enter product description"
-                className={`w-full px-3 py-2 mt-2 border rounded ${errors.description ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 mt-2 border rounded ${errors.description ? 'border-rose-500' : ''}`}
               />
               {errors.description && (
-                <p className="text-xs text-red-500">{errors.description}</p>
+                <p className="text-xs text-rose-600">{errors.description}</p>
               )}
             </div>
 
             <div>
               <label className="block text-sm font-medium">
-                Choose Image <span className="text-red-500">*</span>
+                Choose Image <span className="text-rose-600">*</span>
               </label>
               <input
                 type="file"
@@ -746,7 +767,7 @@ const validateForm = () => {
               />
               {errors.image && (
 
-              <p className="mt-1 text-sm text-red-500">{errors.image}</p> )}
+              <p className="mt-1 text-sm text-rose-600">{errors.image}</p> )}
 
             </div>
             <div className="flex flex-row justify-start gap-10 mt-4 md:col-span-3">
@@ -756,17 +777,17 @@ const validateForm = () => {
                   type="checkbox"
                   checked={isNewArrial}
                   onChange={(e) => setIsNewArrival(e.target.checked)}
-                  className="w-5 h-5 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-5 h-5 mr-2 accent-[#062c21] border-slate-300 rounded focus:ring-[#062c21]"
                 />
 
-                <label className="text-sm font-medium">New Arrival</label>
+                <label className="text-sm font-medium">New project</label>
               </div>
               <div className="flex items-center mb-2">
                 <input
                   type="checkbox"
                   checked={isBestSeller}
                   onChange={(e) => setIsBestSeller(e.target.checked)}
-                  className="w-5 h-5 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-5 h-5 mr-2 accent-[#062c21] border-slate-300 rounded focus:ring-[#062c21]"
                 />
                 <label className="text-sm font-medium">Best Seller</label>
               </div>
@@ -775,7 +796,7 @@ const validateForm = () => {
                   type="checkbox"
                   checked={isRecommended}
                   onChange={(e) => setIsRecommended(e.target.checked)}
-                  className="w-5 h-5 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-5 h-5 mr-2 accent-[#062c21] border-slate-300 rounded focus:ring-[#062c21]"
                 />
                 <label className="text-sm font-medium">Recommended</label>
               </div>
@@ -786,13 +807,13 @@ const validateForm = () => {
           <div className="flex justify-end gap-4 mt-4">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-white rounded-md bg-cancel-btn hover:bg-gray-600"
+              className="px-4 py-2 text-[#062c21] rounded-md bg-slate-200 hover:bg-slate-300 transition font-medium"
             >
               Cancel
             </button>
             <button
               onClick={handleSubmit}
-              className="px-4 py-2 text-white rounded-md bg-submit-btn hover:bg-green-700"
+              className="px-4 py-2 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               Submit
             </button>

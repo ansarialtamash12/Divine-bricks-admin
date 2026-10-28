@@ -6,7 +6,7 @@ import Footer from "./footer/page";
 
 const layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "rgb(243, 244, 246)" }}>
+    <div className="flex flex-col min-h-screen bg-[#faf9f6]">
       <NavbarLogin />
       <div className="flex items-center justify-center flex-grow">
         {children}
@@ -17,6 +17,3 @@ const layout = ({ children }) => {
 };
 
 export default layout;
-
-
-

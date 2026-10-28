@@ -165,7 +165,7 @@ const Brand = () => {
                 setFormErrors({ name: '', description: '' })
                 setActive(true)
               }}
-              className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               + Add Brand
             </button>
@@ -176,12 +176,12 @@ const Brand = () => {
 
       {showForm && (
         <div className="p-4 mb-4 rounded ">
-          <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
+          <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Brand' : 'Add Brand'}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block font-medium">Brand Name</label>
+              <label className="block font-medium text-[#062c21]">Brand Name</label>
               <input
                 type="text"
                 value={name}
@@ -191,17 +191,17 @@ const Brand = () => {
                   setFormErrors((prev) => ({ ...prev, name: '' }))
                 }}
                 placeholder="Enter Brand Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {formErrors.name && (
-                <p className="text-sm text-red-500">{formErrors.name}</p>
+                <p className="text-sm text-rose-600">{formErrors.name}</p>
               )}
             </div>
 
-            {/* {formErrors.name && <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>} */}
+            {/* {formErrors.name && <p className="mt-1 text-sm text-rose-600">{formErrors.name}</p>} */}
 
             <div>
-              <label className="block font-medium">Brand Description</label>
+              <label className="block font-medium text-[#062c21]">Brand Description</label>
               <textarea
                 value={description}
                 onChange={(e) => {
@@ -209,14 +209,14 @@ const Brand = () => {
                   setFormErrors((prev) => ({ ...prev, description: '' }))
                 }}
                 placeholder="Enter Brand Description"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {formErrors.description && (
-                <p className="text-sm text-red-500">{formErrors.description}</p>
+                <p className="text-sm text-rose-600">{formErrors.description}</p>
               )}
             </div>
 
-            {/* {formErrors.description && <p className="mt-1 text-sm text-red-500">{formErrors.description}</p>} */}
+            {/* {formErrors.description && <p className="mt-1 text-sm text-rose-600">{formErrors.description}</p>} */}
 
             {editMode && (
               <div className="flex items-center space-x-2">
@@ -225,9 +225,9 @@ const Brand = () => {
                   id="isActive"
                   checked={active}
                   onChange={(e) => setActive(e.target.checked)}
-                  className="w-5 h-5"
+                  className="w-5 h-5 accent-[#062c21]"
                 />
-                <label htmlFor="isActive" className="font-medium">
+                <label htmlFor="isActive" className="font-medium text-[#062c21]">
                   Active
                 </label>
               </div>
@@ -235,13 +235,13 @@ const Brand = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+                className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
               >
                 {editMode ? 'Update' : 'Submit'}
               </button>
               <button
                 type="button"
-                className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
                 onClick={handleCancel}
               >
                 Cancel
@@ -253,7 +253,7 @@ const Brand = () => {
 
       {!showForm && (
         <>
-          {error && <p className="text-red-500">Error: {error}</p>}
+          {error && <p className="text-rose-600">Error: {error}</p>}
           <Table
             columns={Columns}
             data={brand}

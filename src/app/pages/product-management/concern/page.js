@@ -132,7 +132,7 @@ const Concern = () => {
               setActive(false)
               setErrors({ name: '', description: '' })
             }}
-            className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+            className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
           >
             + Add Concern
           </button>
@@ -144,11 +144,11 @@ const Concern = () => {
       {showForm && (
         <div className="p-4 mb-4">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
+            <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">
               {editMode ? 'Edit Concern' : 'Add Concern'}
             </h2>
             <div>
-              <label className="block font-medium">Concern Name</label>
+              <label className="block font-medium text-[#062c21]">Concern Name</label>
               <input
                 type="text"
                 value={name}
@@ -158,14 +158,14 @@ const Concern = () => {
                   setErrors((prev) => ({ ...prev, name: '' }))
                 }}
                 placeholder="Enter Concern Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.name && (
-                <p className="text-sm text-red-500">{errors.name}</p>
+                <p className="text-sm text-rose-600">{errors.name}</p>
               )}
             </div>
             <div>
-              <label className="block font-medium">Description Name</label>
+              <label className="block font-medium text-[#062c21]">Description Name</label>
               <input
                 type="text"
                 value={description}
@@ -174,10 +174,10 @@ const Concern = () => {
                   setErrors((prev) => ({ ...prev, description: '' }))
                 }}
                 placeholder="Enter Description Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.description && (
-                <p className="text-sm text-red-500">{errors.description}</p>
+                <p className="text-sm text-rose-600">{errors.description}</p>
               )}
             </div>
             {/* Active Checkbox */}
@@ -187,9 +187,9 @@ const Concern = () => {
                   type="checkbox"
                   checked={active}
                   onChange={(e) => setActive(e.target.checked)}
-                  className="w-5 h-5 mr-2 cursor-pointer"
+                  className="w-5 h-5 mr-2 cursor-pointer accent-[#062c21]"
                 />
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-sm font-medium text-[#062c21]">
                   Active
                 </label>
               </div>
@@ -199,7 +199,7 @@ const Concern = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded-md bg-submit-btn hover:bg-green-700"
+                className="px-4 py-2 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
                 disabled={loading}
               >
                 {editMode ? 'Update' : 'Submit'}
@@ -215,7 +215,7 @@ const Concern = () => {
                   setActive(false)
                   setErrors({ name: '', description: '' })
                 }}
-                className="px-4 py-2 text-white rounded-md bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded-md bg-slate-200 hover:bg-slate-300 transition font-medium"
               >
                 Cancel
               </button>

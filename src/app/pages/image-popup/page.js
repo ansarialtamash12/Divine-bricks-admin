@@ -18,7 +18,7 @@ const ImagePopup = ({ src, alt }) => {
       />
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#062c21]/80"
           onClick={closePopup}
         >
 
@@ -34,7 +34,7 @@ const ImagePopup = ({ src, alt }) => {
               className="object-contain rounded-md"
             />
             <button
-              className="absolute px-3 py-1 text-black rounded-md top-2 right-2"
+              className="absolute px-3 py-1 text-amber-300 bg-[#062c21] rounded-md top-2 right-2"
               onClick={closePopup}
             >
               ✕

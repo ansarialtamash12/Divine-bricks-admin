@@ -194,7 +194,7 @@ const SubCategoryType = () => {
         {!showForm && (
           <button
             onClick={() => setShowForm(true)}
-            className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+            className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
           >
             + Add Subcategory Type
           </button>
@@ -204,10 +204,10 @@ const SubCategoryType = () => {
 
       {showForm && (
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-          <h2 className="mb-10 text-2xl font-bold text-center text-add-label">
+          <h2 className="mb-10 text-2xl font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Subcategory Type' : 'Add Subcategory Type'}
           </h2>
-          <label className="block font-medium">Category Name</label>
+          <label className="block font-medium text-[#062c21]">Category Name</label>
           <Select
             options={categoryOptions}
             value={selectedCategory}
@@ -221,9 +221,9 @@ const SubCategoryType = () => {
             isDisabled={editMode}
           />
           {formErrors.category && (
-            <p className="mt-1 text-sm text-red-600">{formErrors.category}</p>
+            <p className="mt-1 text-sm text-rose-600">{formErrors.category}</p>
           )}
-          <label className="block font-medium">SubCategory Name</label>
+          <label className="block font-medium text-[#062c21]">SubCategory Name</label>
           <Select
             options={subCategoryOptions}
             value={selectedSubCategory}
@@ -236,11 +236,11 @@ const SubCategoryType = () => {
             isDisabled={editMode}
           />
           {formErrors.subCategory && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-rose-600">
               {formErrors.subCategory}
             </p>
           )}
-          <label className="block font-medium">SubCategoryType Name</label>
+          <label className="block font-medium text-[#062c21]">SubCategoryType Name</label>
           <input
             type="text"
             value={subCategoryTypeName}
@@ -250,10 +250,10 @@ const SubCategoryType = () => {
               setFormErrors((prev) => ({ ...prev, subCategoryTypeName: '' }));
             }}
             placeholder="Enter Subcategory Type Name"
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
           />
           {formErrors.subCategoryTypeName && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-rose-600">
               {formErrors.subCategoryTypeName}
             </p>
           )}
@@ -264,16 +264,16 @@ const SubCategoryType = () => {
               type="checkbox"
               checked={active}
               onChange={(e) => setActive(e.target.checked)}
-              className="w-5 h-5 mr-2 cursor-pointer"
+              className="w-5 h-5 mr-2 cursor-pointer accent-[#062c21]"
             />
-            <label className="text-sm font-medium text-gray-700">Active</label>
+            <label className="text-sm font-medium text-[#062c21]">Active</label>
           </div>
 
           {/*  Submit and Cancel Buttons */}
           <div className="flex gap-3">
             <button
               type="submit"
-              className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+              className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               {editMode ? 'Update' : 'Submit'}
             </button>
@@ -287,7 +287,7 @@ const SubCategoryType = () => {
                 setFormErrors({})
                 setActive(false)
               }}
-              className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+              className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
             >
               Cancel
             </button>
