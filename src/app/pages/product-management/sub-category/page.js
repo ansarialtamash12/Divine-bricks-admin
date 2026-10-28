@@ -145,7 +145,7 @@ const SubCategory = () => {
                 setShowForm(true);
                 setErrors({});
               }}
-              className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               + Add Subcategory
             </button>
@@ -156,11 +156,11 @@ const SubCategory = () => {
 
       {showForm && (
         <div className="p-4 mb-4 rounded-md ">
-          <h2 className="mb-10 text-2xl font-bold text-center text-add-label">
+          <h2 className="mb-10 text-2xl font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Subcategory' : 'Add Subcategory'}
           </h2>
           <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-            <label className="block font-medium">Category Name</label>
+            <label className="block font-medium text-[#062c21]">Category Name</label>
             {/* Category Selector */}
             <Select
               options={options}
@@ -177,8 +177,8 @@ const SubCategory = () => {
               isDisabled={editMode}
             />
 
-            {errors.selectedCategory && <p className="mt-1 text-sm text-red-500">{errors.selectedCategory}</p>}
-            <label className="block font-medium">SubCategory Name</label>
+            {errors.selectedCategory && <p className="mt-1 text-sm text-rose-600">{errors.selectedCategory}</p>}
+            <label className="block font-medium text-[#062c21]">SubCategory Name</label>
             {/* Subcategory Name */}
             <input
               type="text"
@@ -191,10 +191,10 @@ const SubCategory = () => {
                 }
               }}
               placeholder="Enter Subcategory Name"
-              className="w-full px-3 py-2 border border-gray-300 rounded"
+              className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
             />
 
-            {errors.subCategoryName && <p className="mt-1 text-sm text-red-500">{errors.subCategoryName}</p>}
+            {errors.subCategoryName && <p className="mt-1 text-sm text-rose-600">{errors.subCategoryName}</p>}
 
             {/*  Active Checkbox */}
             {editMode && (
@@ -203,9 +203,9 @@ const SubCategory = () => {
                   type="checkbox"
                   checked={active}
                   onChange={(e) => setActive(e.target.checked)}
-                  className="w-5 h-5 mr-2 cursor-pointer"
+                  className="w-5 h-5 mr-2 cursor-pointer accent-[#062c21]"
                 />
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-sm font-medium text-[#062c21]">
                   Active
                 </label>
               </div>
@@ -215,7 +215,7 @@ const SubCategory = () => {
             <div className="flex gap-3">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+                className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
                 disabled={loading}
               >
                 {submitButtonText}
@@ -230,7 +230,7 @@ const SubCategory = () => {
                   setActive(false);
                   setErrors({});
                 }}
-                className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
               >
                 Cancel
               </button>

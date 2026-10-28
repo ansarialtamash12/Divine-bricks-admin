@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -99,18 +98,18 @@ const EditFaq = ({ productId, createdBy }) => {
         }
     };
 
-    if (loading) return <p className="text-gray-600">Loading FAQs...</p>;
-    if (error) return <p className="text-red-600">Error: {error}</p>;
+    if (loading) return <p className="text-slate-500">Loading FAQs...</p>;
+    if (error) return <p className="text-rose-600">Error: {error}</p>;
 
     return (
         <div className="mt-4">
             {/* FAQ Table */}
-            <div className="p-6 bg-white shadow-md rounded-xl">
+            <div className="p-6 bg-white border border-slate-200 shadow-md rounded-xl">
                 <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-gray-800">FAQ</h3>
+                    <h3 className="text-2xl font-bold text-[#062c21]">FAQ</h3>
                     {!editItem && (
                         <button
-                            className="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700"
+                            className="px-4 py-2 text-amber-300 bg-[#062c21] rounded hover:bg-[#093d2e] transition font-semibold"
                             onClick={() => setShowAddForm(true)}
                         >
                             Add FAQ
@@ -122,41 +121,41 @@ const EditFaq = ({ productId, createdBy }) => {
                     <>
                         {/* Desktop Table View */}
                         <div className="hidden overflow-x-auto md:block">
-                            <table className="min-w-full border border-gray-200 table-auto">
-                                <thead className="bg-gray-100">
+                            <table className="min-w-full border border-slate-200 table-auto">
+                                <thead className="bg-[#062c21] text-amber-300">
                                     <tr>
-                                        <th className="w-40 px-4 py-2 text-center border">Actions</th>
-                                        <th className="px-4 py-2 text-center border">Title</th>
-                                        <th className="px-4 py-2 text-center border">Description</th>
-                                        <th className="px-4 py-2 text-center border">Faq Type</th>
-                                        <th className="px-4 py-2 text-center border">Status</th>
+                                        <th className="w-40 px-4 py-2 text-center border border-slate-200">Actions</th>
+                                        <th className="px-4 py-2 text-center border border-slate-200">Title</th>
+                                        <th className="px-4 py-2 text-center border border-slate-200">Description</th>
+                                        <th className="px-4 py-2 text-center border border-slate-200">Faq Type</th>
+                                        <th className="px-4 py-2 text-center border border-slate-200">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {faqProductId.map((faq) => (
-                                        <tr key={faq.id} className="bg-white border-b hover:bg-gray-50">
-                                            <td className="px-4 py-2 border">
+                                        <tr key={faq.id} className="bg-white border-b border-slate-200 hover:bg-emerald-50/60">
+                                            <td className="px-4 py-2 border border-slate-200">
                                                 <div className="flex gap-2">
                                                      <button
-                                                    className="px-3 py-1 text-white bg-yellow-500 rounded hover:bg-blue-600"
+                                                    className="px-3 py-1 text-[#062c21] bg-amber-400 rounded hover:bg-amber-500 font-semibold"
                                                     onClick={() => handleEditClick(faq)}
                                                 >
                                                     Edit
                                                 </button>
                                                 <button
-                                                    className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+                                                    className="px-3 py-1 text-white bg-rose-600 rounded hover:bg-rose-700 font-medium"
                                                     onClick={() => handleDeleteClick(faq)}
                                                 >
                                                     Delete
                                                 </button>
                                                 </div>
                                             </td>
-                                            <td className="px-4 py-2 font-medium text-center border">{faq.title}</td>
-                                            <td className="px-4 py-2 text-sm text-center border">
+                                            <td className="px-4 py-2 font-medium text-center border border-slate-200">{faq.title}</td>
+                                            <td className="px-4 py-2 text-sm text-center border border-slate-200">
                                                 <div dangerouslySetInnerHTML={{ __html: faq.description }} />
                                             </td>
-                                            <td className="px-4 py-2 text-center border">{faq.faqType}</td>
-                                            <td className="px-4 py-2 text-center border">{faq.status}</td>
+                                            <td className="px-4 py-2 text-center border border-slate-200">{faq.faqType}</td>
+                                            <td className="px-4 py-2 text-center border border-slate-200">{faq.status}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -166,21 +165,21 @@ const EditFaq = ({ productId, createdBy }) => {
                         {/* Mobile Card View */}
                         <div className="space-y-4 md:hidden">
   {faqProductId.map((faq) => (
-    <div key={faq.id} className="p-4 bg-white border rounded-lg shadow-sm">
+    <div key={faq.id} className="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h4 className="text-xs font-semibold text-gray-500 uppercase">Title</h4>
-          <p className="font-medium text-gray-800">{faq.title}</p>
+          <h4 className="text-xs font-semibold text-slate-500 uppercase">Title</h4>
+          <p className="font-medium text-[#062c21]">{faq.title}</p>
         </div>
         <div className="flex gap-2">
           <button
-            className="px-2 py-1 text-xs text-white bg-yellow-500 rounded hover:bg-yellow-600"
+            className="px-2 py-1 text-xs text-[#062c21] bg-amber-400 rounded hover:bg-amber-500 font-semibold"
             onClick={() => handleEditClick(faq)}
           >
             Edit
           </button>
           <button
-            className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
+            className="px-2 py-1 text-xs text-white bg-rose-600 rounded hover:bg-rose-700 font-medium"
             onClick={() => handleDeleteClick(faq)}
           >
             Delete
@@ -189,17 +188,17 @@ const EditFaq = ({ productId, createdBy }) => {
       </div>
 
       <div className="mb-3">
-        <h4 className="text-xs font-semibold text-gray-500 uppercase">Description</h4>
-        <div className="mt-1 text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: faq.description }} />
+        <h4 className="text-xs font-semibold text-slate-500 uppercase">Description</h4>
+        <div className="mt-1 text-sm text-slate-600" dangerouslySetInnerHTML={{ __html: faq.description }} />
       </div>
 
       <div className="flex justify-between">
         <div>
-          <h4 className="text-xs font-semibold text-gray-500 uppercase">FAQ Type</h4>
-          <p className="text-sm text-gray-700">{faq.faqType}</p>
+          <h4 className="text-xs font-semibold text-slate-500 uppercase">FAQ Type</h4>
+          <p className="text-sm text-slate-700">{faq.faqType}</p>
         </div>
         <div className='mt-2'>
-          <span className={`px-2 py-1 text-sm rounded ${faq.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+          <span className={`px-2 py-1 text-sm rounded ${faq.status === 'Active' ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' : 'bg-slate-100 text-slate-700 border border-slate-200'}`}>
             {faq.status}
           </span>
         </div>
@@ -209,30 +208,30 @@ const EditFaq = ({ productId, createdBy }) => {
 </div>
                     </>
                 ) : (
-                    <p className="text-gray-500">No FAQs found for this product.</p>
+                    <p className="text-slate-500">No FAQs found for this product.</p>
                 )}
             </div>
 
             {/* Add FAQ Form */}
             {showAddForm && (
-                <div className="w-full p-6 mt-6 mb-6 bg-white border shadow rounded-xl">
-                    <h3 className="mb-4 text-xl font-bold">Add New FAQ</h3>
+                <div className="w-full p-6 mt-6 mb-6 bg-white border border-slate-200 shadow rounded-xl">
+                    <h3 className="mb-4 text-xl font-bold text-[#062c21]">Add New FAQ</h3>
                     <form onSubmit={handleAddFaqSubmit} className="space-y-5">
                         <div>
-                            <label className="block mb-1 text-sm font-medium">Title</label>
+                            <label className="block mb-1 text-sm font-medium text-[#062c21]">Title</label>
                             <input
                                 type="text"
                                 name="title"
                                 value={addFormData.title}
                                 onChange={handleAddInputChange}
-                                className="w-full px-3 py-2 border rounded"
+                                className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                                 placeholder="Enter FAQ title"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block mb-1 text-sm font-medium">Description</label>
+                            <label className="block mb-1 text-sm font-medium text-[#062c21]">Description</label>
                             <RichTextEditor
                                 value={addFormData.description}
                                 onChange={(value) => setAddFormData({ ...addFormData, description: value })}
@@ -240,7 +239,7 @@ const EditFaq = ({ productId, createdBy }) => {
                         </div>
 
                         <div>
-                            <label className="block mb-2 text-sm font-medium">FAQ Type</label>
+                            <label className="block mb-2 text-sm font-medium text-[#062c21]">FAQ Type</label>
                             <div className="flex flex-wrap gap-4">
                                 {['Ingredient', 'WithProduct', 'Faq'].map((type) => (
                                     <label key={type} className="flex items-center">
@@ -250,9 +249,9 @@ const EditFaq = ({ productId, createdBy }) => {
                                             value={type}
                                             checked={addFormData.faqType === type}
                                             onChange={handleAddInputChange}
-                                            className="w-4 h-4 text-blue-600"
+                                            className="w-4 h-4 accent-[#062c21]"
                                         />
-                                        <span className="ml-2 text-sm text-gray-700">{type}</span>
+                                        <span className="ml-2 text-sm text-slate-700">{type}</span>
                                     </label>
                                 ))}
                             </div>
@@ -261,14 +260,14 @@ const EditFaq = ({ productId, createdBy }) => {
                         <div className="flex gap-4">
                             <button
                                 type="submit"
-                                className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+                                className="px-4 py-2 text-amber-300 bg-[#062c21] rounded hover:bg-[#093d2e] transition font-semibold"
                             >
                                 Add FAQ
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setShowAddForm(false)}
-                                className="px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300"
+                                className="px-4 py-2 text-[#062c21] bg-slate-200 rounded hover:bg-slate-300 transition font-medium"
                             >
                                 Cancel
                             </button>
@@ -279,27 +278,27 @@ const EditFaq = ({ productId, createdBy }) => {
 
             {/* Edit FAQ Form */}
             {editItem && (
-                <div className="p-4 mt-6 space-y-4 border rounded bg-gray-50">
-                    <h3 className="text-xl font-semibold">Edit FAQ</h3>
+                <div className="p-4 mt-6 space-y-4 border border-slate-200 rounded bg-slate-50">
+                    <h3 className="text-xl font-semibold text-[#062c21]">Edit FAQ</h3>
                     <div>
-                        <label className="block mb-1 text-sm font-medium">Title</label>
+                        <label className="block mb-1 text-sm font-medium text-[#062c21]">Title</label>
                         <input
                             type="text"
                             name="title"
                             value={formData.title}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border rounded"
+                            className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                         />
                     </div>
                     <div>
-                        <label className="block mb-1 text-sm font-medium">Description</label>
+                        <label className="block mb-1 text-sm font-medium text-[#062c21]">Description</label>
                         <RichTextEditor
                             value={formData.description}
                             onChange={(value) => setFormData({ ...formData, description: value })}
                         />
                     </div>
                     <div>
-                        <label className="block mb-2 text-sm font-medium">FAQ Type</label>
+                        <label className="block mb-2 text-sm font-medium text-[#062c21]">FAQ Type</label>
                         <div className="flex flex-wrap gap-4">
                             {['Ingredient', 'WithProduct', 'Faq'].map((type) => (
                                 <label key={type} className="flex items-center">
@@ -309,9 +308,9 @@ const EditFaq = ({ productId, createdBy }) => {
                                         value={type}
                                         checked={formData.faqType === type}
                                         onChange={handleInputChange}
-                                        className="w-4 h-4 text-blue-600"
+                                        className="w-4 h-4 accent-[#062c21]"
                                     />
-                                    <span className="ml-2 text-sm text-gray-700">{type}</span>
+                                    <span className="ml-2 text-sm text-slate-700">{type}</span>
                                 </label>
                             ))}
                         </div>
@@ -327,21 +326,21 @@ const EditFaq = ({ productId, createdBy }) => {
                                         status: e.target.checked ? 'Active' : 'Inactive',
                                     }))
                                 }
-                                className="w-4 h-4 mr-2 text-blue-600 bg-white border-gray-300 rounded"
+                                className="w-4 h-4 mr-2 accent-[#062c21] bg-white border-slate-300 rounded"
                             />
-                            <span className="text-sm">Active</span>
+                            <span className="text-sm text-[#062c21]">Active</span>
                         </label>
                     </div>
                     <div className="flex gap-4">
                         <button
                             onClick={handleSubmit}
-                            className="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700"
+                            className="px-4 py-2 text-amber-300 bg-[#062c21] rounded hover:bg-[#093d2e] transition font-semibold"
                         >
                             Update
                         </button>
                         <button
                             onClick={() => setEditItem(null)}
-                            className="px-4 py-2 text-white bg-gray-500 rounded hover:bg-gray-600"
+                            className="px-4 py-2 text-[#062c21] bg-slate-200 rounded hover:bg-slate-300 transition font-medium"
                         >
                             Cancel
                         </button>

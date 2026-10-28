@@ -36,6 +36,7 @@ const EditProduct = ({ product, onClose }) => {
         ingredient: '',
         title: '',
         subTitle: '',
+        adress: '',
         stock: '',
         price: '',
         mrp: '',
@@ -63,6 +64,7 @@ const EditProduct = ({ product, onClose }) => {
                 ingredient: product.ingredientId || '',
                 title: product.productName || '',
                 subTitle: product.subName || '',
+                adress: product.adress || '',
                 stock: product.stock || '',
                 price: product.price || '',
                 mrp: product.mrp || '',
@@ -140,6 +142,7 @@ const EditProduct = ({ product, onClose }) => {
         ingredientId: formData.ingredient,
         title: formData.title,
         subTitle: formData.subTitle,
+        adress: formData.adress,
         rating: formData.rating,
         noOfRating: formData.noOfRating,
         stock: formData.stock,
@@ -186,52 +189,52 @@ const EditProduct = ({ product, onClose }) => {
 
     return (
         <div className="p-4 mb-4 rounded">
-            <h3 className="mb-6 text-xl font-bold text-center text-add-label md:text-2xl md:mb-10">Edit Product</h3>
+            <h3 className="mb-6 text-xl font-bold text-center text-[#062c21] md:text-2xl md:mb-10">Edit Product</h3>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 {/* Category */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Category</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Category</label>
                     <input
                         type="category"
                         name="category"
                         value={product?.categoryName}
                         disabled
-                        className="w-full px-3 py-2 mt-2 text-sm bg-gray-100 border rounded cursor-not-allowed md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm bg-slate-100 border border-slate-300 rounded cursor-not-allowed md:text-base"
                     />
                 </div>
 
                 {/* Subcategory */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Subcategory</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Subcategory</label>
                     <input
                         type="text"
                         name="subcategory"
                         value={product?.subCategoryName}
                         disabled
-                        className="w-full px-3 py-2 mt-2 text-sm bg-gray-100 border rounded cursor-not-allowed md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm bg-slate-100 border border-slate-300 rounded cursor-not-allowed md:text-base"
                     />
                 </div>
 
                 {/* Subcategory Type */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Subcategory Type</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Subcategory Type</label>
                     <input
                         type="text"
                         name="subCategoryTypeId"
                         value={product?.subCategoryTypeName}
                         disabled
-                        className="w-full px-3 py-2 mt-2 text-sm bg-gray-100 border rounded cursor-not-allowed md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm bg-slate-100 border border-slate-300 rounded cursor-not-allowed md:text-base"
                     />
                 </div>
 
                 {/* Seller */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Seller</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Seller</label>
                     <select
                         name="seller"
                         value={formData.seller}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select Seller</option>
                         {sellerData.map((seller) => (
@@ -244,12 +247,12 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Step */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Step</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Step</label>
                     <select
                         name="steps"
                         value={formData.steps}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select steps</option>
                         {stepsList.map((steps) => (
@@ -262,12 +265,12 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Type of Product */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Type of Product</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Type of Product</label>
                     <select
                         name="typeOfProduct"
                         value={formData.typeOfProduct}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select TypeofProduct</option>
                         {typeofproductList.map((typeOfProduct) => (
@@ -280,12 +283,12 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Size */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Size</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Size</label>
                     <select
                         name="size"
                         value={formData.size}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select size</option>
                         {sizeData.map((size) => (
@@ -298,12 +301,12 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Concern */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Concern</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Concern</label>
                     <select
                         name="concern"
                         value={formData.concern}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select Concern</option>
                         {ConcernData.map((concern) => (
@@ -316,12 +319,12 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Ingredient */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Ingredient</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Ingredient</label>
                     <select
                         name="ingredient"
                         value={formData.ingredient}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     >
                         <option value="">Select Ingredient</option>
                         {IngredientData.map((ingredient) => (
@@ -334,126 +337,140 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Title */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Title</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Title</label>
                     <input
                         type="text"
                         name="title"
                         value={formData.title}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
                 {/* Subtitle */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Subtitle</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Subtitle</label>
                     <input
                         type="text"
                         name="subTitle"
                         value={formData.subTitle}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
+                    />
+                </div>
+                 {/* Address */}
+                <div className="md:col-span-1">
+                    <label className="block text-sm font-medium text-[#062c21]">Address</label>
+                    <input
+                        type="text"
+                        name="adress"
+                        value={formData.adress}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
+
+
+
                 {/* Stock Quantity */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Stock Quantity</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Stock Quantity</label>
                     <input
                         type="number"
                         name="stock"
                         value={formData.stock}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
 
                 {/* MRP */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">MRP</label>
+                    <label className="block text-sm font-medium text-[#062c21]">MRP</label>
                     <input
                         type="number"
                         name="mrp"
                         value={formData.mrp}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
                 {/* Price */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Price</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Price</label>
                     <input
                         type="number"
                         name="price"
                         value={formData.price}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 mt-2 text-sm border rounded md:text-base ${errors.price ? 'border-red-500' : ''
+                        className={`w-full px-3 py-2 mt-2 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base ${errors.price ? 'border-rose-500' : 'border-slate-300'
                             }`}
                     />
                     {errors.price && (
-                        <p className="mt-1 text-xs text-red-500">{errors.price}</p>
+                        <p className="mt-1 text-xs text-rose-600">{errors.price}</p>
                     )}
                 </div>
 
                 {/* Discount Price */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Discount Price</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Discount Price</label>
                     <input
                         type="number"
                         name="discountPrice"
                         value={formData.discountPrice}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
                 {/* Rating */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">Rating</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Rating</label>
                     <input
                         type="text"
                         name="rating"
                         value={formData.rating}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
                 {/* No. of Ratings */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium">No. of Ratings</label>
+                    <label className="block text-sm font-medium text-[#062c21]">No. of Ratings</label>
                     <input
                         type="text"
                         name="noOfRating"
                         value={formData.noOfRating}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                     />
                 </div>
 
                 {/* Description */}
                 <div className="md:col-span-2">
-                    <label className="block text-sm font-medium">Description</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Description</label>
                     <input
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 mt-2 text-sm border rounded md:text-base"
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
                         rows="3"
                     />
                 </div>
 
                 {/* Active Checkbox */}
                 <div className="col-span-1 mt-3 md:col-span-3">
-                    <label className="flex items-center text-sm font-medium">
+                    <label className="flex items-center text-sm font-medium text-[#062c21]">
                         <input
                             type="checkbox"
                             name="isActive"
                             checked={formData.isActive}
                             onChange={handleChange}
-                            className="w-4 h-4 mr-2"
+                            className="w-4 h-4 mr-2 accent-[#062c21]"
                         />
                         Active
                     </label>
@@ -467,9 +484,9 @@ const EditProduct = ({ product, onClose }) => {
                             name="isNewArrial"
                             checked={formData.isNewArrial}
                             onChange={handleCheckboxChange}
-                            className="w-4 h-4"
+                            className="w-4 h-4 accent-[#062c21]"
                         />
-                        <span className="text-sm md:text-base">New Arrival</span>
+                        <span className="text-sm md:text-base text-[#062c21]">New Project</span>
                     </label>
                     <label className="flex items-center space-x-2">
                         <input
@@ -477,9 +494,9 @@ const EditProduct = ({ product, onClose }) => {
                             name="isBestSeller"
                             checked={formData.isBestSeller}
                             onChange={handleCheckboxChange}
-                            className="w-4 h-4"
+                            className="w-4 h-4 accent-[#062c21]"
                         />
-                        <span className="text-sm md:text-base">Best Seller</span>
+                        <span className="text-sm md:text-base text-[#062c21]">Best Seller</span>
                     </label>
                     <label className="flex items-center space-x-2">
                         <input
@@ -487,9 +504,9 @@ const EditProduct = ({ product, onClose }) => {
                             name="isRecommended"
                             checked={formData.isRecommended}
                             onChange={handleCheckboxChange}
-                            className="w-4 h-4"
+                            className="w-4 h-4 accent-[#062c21]"
                         />
-                        <span className="text-sm md:text-base">Recommended</span>
+                        <span className="text-sm md:text-base text-[#062c21]">Recommended</span>
                     </label>
                 </div>
 
@@ -497,12 +514,12 @@ const EditProduct = ({ product, onClose }) => {
                 <div className="flex flex-col col-span-1 gap-3 mt-4 md:col-span-3 md:flex-row md:justify-end">
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 text-sm text-white rounded bg-cancel-btn md:text-base"
+                        className="px-4 py-2 text-sm text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium md:text-base"
                     >
                         Close
                     </button>
                     <button
-                        className="px-4 py-2 text-sm text-white rounded bg-submit-btn md:text-base"
+                        className="px-4 py-2 text-sm text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold md:text-base"
                         type="submit"
                         onClick={handleSubmit}
                     >

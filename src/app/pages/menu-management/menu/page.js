@@ -154,7 +154,7 @@ const Menu = () => {
         <div className="w-full md:w-[45%] flex justify-center md:justify-start">
           {!showForm && (
             <button
-              className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
               onClick={() => {
                 setShowForm(true)
                 setEditMode(false)
@@ -170,102 +170,102 @@ const Menu = () => {
       {showForm && (
         <div className="p-4 mb-4">
           <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-x-6 gap-y-4">
-            <h2 className="col-span-2 mb-4 text-2xl font-bold text-center text-add-label">
+            <h2 className="col-span-2 mb-4 text-2xl font-bold text-center text-[#062c21]">
               {editMode ? 'Edit Menu' : 'Add Menu'}
             </h2>
 
             {/* Menu Name */}
             <div>
-              <label className="block font-medium">Menu Name</label>
+              <label className="block font-medium text-[#062c21]">Menu Name</label>
               <input
                 type="text"
                 name="menuName"
                 value={menuDetails.menuName}
                 onChange={handleChange}
                 placeholder="Enter Menu Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.menuName && (
-                <p className="text-sm text-red-500">{errors.menuName}</p>
+                <p className="text-sm text-rose-600">{errors.menuName}</p>
               )}
             </div>
 
             {/* Menu Icon */}
             <div>
-              <label className="block font-medium">Menu Icon</label>
+              <label className="block font-medium text-[#062c21]">Menu Icon</label>
               <input
                 type="text"
                 name="menuIcon"
                 value={menuDetails.menuIcon}
                 onChange={handleChange}
                 placeholder="Enter Menu Icon"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.menuIcon && (
-                <p className="text-sm text-red-500">{errors.menuIcon}</p>
+                <p className="text-sm text-rose-600">{errors.menuIcon}</p>
               )}
             </div>
 
             <div>
-              <label className="block font-medium">Page Name</label>
+              <label className="block font-medium text-[#062c21]">Page Name</label>
               <input
                 type="text"
                 name="pageName"
                 value={menuDetails.pageName}
                 onChange={handleChange}
                 placeholder="Enter Page Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.pageName && (
-                <p className="text-sm text-red-500">{errors.pageName}</p>
+                <p className="text-sm text-rose-600">{errors.pageName}</p>
               )}
             </div>
 
             {/* Controller Name */}
             <div>
-              <label className="block font-medium">Controller Name</label>
+              <label className="block font-medium text-[#062c21]">Controller Name</label>
               <input
                 type="text"
                 name="controllerName"
                 value={menuDetails.controllerName}
                 onChange={handleChange}
                 placeholder="Enter Controller Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.controllerName && (
-                <p className="text-sm text-red-500">{errors.controllerName}</p>
+                <p className="text-sm text-rose-600">{errors.controllerName}</p>
               )}
             </div>
 
             {/* Action Name */}
             <div>
-              <label className="block font-medium">Action Name</label>
+              <label className="block font-medium text-[#062c21]">Action Name</label>
               <input
                 type="text"
                 name="actionName"
                 value={menuDetails.actionName}
                 onChange={handleChange}
                 placeholder="Enter Action Name"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.actionName && (
-                <p className="text-sm text-red-500">{errors.actionName}</p>
+                <p className="text-sm text-rose-600">{errors.actionName}</p>
               )}
             </div>
 
             {/* Display Order */}
             <div>
-              <label className="block font-medium">Display Order</label>
+              <label className="block font-medium text-[#062c21]">Display Order</label>
               <input
                 type="number"
                 name="displayOrder"
                 value={menuDetails.displayOrder ?? ''}
                 onChange={handleChange}
                 placeholder="Enter Display Order"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
+                className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.displayOrder && (
-                <p className="text-sm text-red-500">{errors.displayOrder}</p>
+                <p className="text-sm text-rose-600">{errors.displayOrder}</p>
               )}
             </div>
 
@@ -279,9 +279,9 @@ const Menu = () => {
                 onChange={(e) =>
                   setMenuDetails({ ...menuDetails, active: e.target.checked })
                 }
-                className="w-5 h-5"
+                className="w-5 h-5 accent-[#062c21]"
               />
-              <label htmlFor="status" className="font-medium">
+              <label htmlFor="status" className="font-medium text-[#062c21]">
                 Active
               </label>
             </div>
@@ -289,7 +289,7 @@ const Menu = () => {
             <div className="flex col-span-2 gap-3 pt-4">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded-md bg-submit-btn hover:bg-green-700"
+                className="px-4 py-2 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
                 disabled={loading}
               >
                 {editMode ? 'Update Menu' : 'Submit'}
@@ -301,7 +301,7 @@ const Menu = () => {
                   setEditMode(false)
                   resetForm()
                 }}
-                className="px-4 py-2 text-white rounded-md bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded-md bg-slate-200 hover:bg-slate-300 transition font-medium"
               >
                 Cancel
               </button>
@@ -312,7 +312,7 @@ const Menu = () => {
 
       {!showForm && (
          <>
-          {error && <p className="text-red-500">Error: {error}</p>}
+          {error && <p className="text-rose-600">Error: {error}</p>}
     <Table
     columns={Columns}
     data={data}

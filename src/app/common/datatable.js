@@ -56,11 +56,11 @@ const Table = ({
   if (loading) return <Loading />
 
   return (
-    <div className="p-4 mt-3 rounded-md shadow-custom-1">
+    <div className="p-4 mt-3 rounded-md shadow-sm border border-slate-200 bg-white">
       <div className="flex flex-col items-center justify-between mb-4 sm:flex-row">
         <div className="w-full mb-2 sm:w-auto sm:mb-0">
           {title && (
-            <h2 className="text-xl font-semibold text-center text-gray-800 sm:text-left">
+            <h2 className="text-xl font-semibold text-center text-[#062c21] sm:text-left">
               {title}
             </h2>
           )}
@@ -70,23 +70,23 @@ const Table = ({
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 border rounded-md sm:w-64 border-customBlue focus:outline-none focus:border-customBlue"
+          className="w-full p-2 border border-slate-300 rounded-md sm:w-64 focus:outline-none focus:ring-2 focus:ring-[#062c21]"
         />
       </div>
 
       {/* Desktop Table View */}
       <div className="hidden overflow-x-auto sm:block tabel">
         {!filteredData.length ? (
-          <div className="py-10 text-lg text-center text-black border rounded-md">
+          <div className="py-10 text-lg text-center text-slate-500 border border-slate-200 rounded-md">
             No Data found!
           </div>
         ) : (
           <>
-            <table className="min-w-full border border-collapse border-gray-300">
+            <table className="min-w-full border border-collapse border-slate-200">
               <thead>
-                <tr className="bg-action">
+                <tr className="bg-[#062c21]">
                   {(onEdit || onDelete) && (
-                    <th className="w-48 px-6 py-3 text-white border border-gray-300">
+                    <th className="w-48 px-6 py-3 text-amber-300 border border-slate-200">
                       Actions
                     </th>
                   )}
@@ -94,9 +94,9 @@ const Table = ({
                     <th
                       key={col.key}
                       onClick={() => sortData(col.key)}
-                      className="px-6 py-3 border cursor-pointer bg-header-tbl hover:bg-blue-600"
+                      className="px-6 py-3 border border-slate-200 cursor-pointer bg-[#062c21] text-amber-300 hover:bg-[#093d2e] transition-colors"
                     >
-                      <div className="flex items-center justify-center text-white">
+                      <div className="flex items-center justify-center">
                         {col.label}
                         {sortConfig.key === col.key && (
                           <span className="ml-2">
@@ -110,14 +110,14 @@ const Table = ({
               </thead>
               <tbody>
                 {currentRows.map((row) => (
-                  <tr key={row.id}>
+                  <tr key={row.id} className="hover:bg-emerald-50/60 transition-colors">
                     {(onEdit || onDelete || onAddImage) && (
-                      <td className="px-6 py-4 border border-gray-300">
+                      <td className="px-6 py-4 border border-slate-200">
                         <div className="flex items-center gap-2">
                           {onEdit && (
                             <button
                               onClick={() => onEdit(row)}
-                              className="px-4 py-2 text-white rounded-md bg-edit-btn hover:bg-yellow-600"
+                              className="px-4 py-2 text-[#062c21] bg-amber-400 hover:bg-amber-500 rounded-md font-semibold transition"
                             >
                               Edit
                             </button>
@@ -125,10 +125,10 @@ const Table = ({
                           {onDelete && (
                             <button
                               onClick={() => row.active && onDelete(row)}
-                              className={`px-4 py-2 ml-2 rounded-md ${
+                              className={`px-4 py-2 ml-2 rounded-md font-medium transition ${
                                 row.active
-                                  ? 'bg-red-500 hover:bg-delete-btn text-white'
-                                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                  ? 'bg-rose-600 hover:bg-rose-700 text-white'
+                                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                               }`}
                               disabled={!row.active}
                             >
@@ -138,7 +138,7 @@ const Table = ({
                           {onAddImage && (
                             <button
                               onClick={() => onAddImage(row)}
-                              className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                              className="px-4 py-2 text-amber-300 bg-[#062c21] hover:bg-[#093d2e] rounded-md font-semibold transition"
                             >
                               Add Image
                             </button>
@@ -149,7 +149,7 @@ const Table = ({
                     {columns.map((col) => (
                       <td
                         key={col.key}
-                        className="px-6 py-4 text-center border border-gray-300"
+                        className="px-6 py-4 text-center border border-slate-200 text-[#062c21]"
                       >
                         {renderCell(col, row)}
                       </td>
@@ -172,21 +172,21 @@ const Table = ({
       {/* Mobile Card View */}
       <div className="space-y-4 sm:hidden">
         {currentRows.length === 0 ? (
-          <div className="py-10 text-lg text-center text-black border rounded-md">
+          <div className="py-10 text-lg text-center text-slate-500 border border-slate-200 rounded-md">
             No Data found!
           </div>
         ) : (
           currentRows.map((row, index) => (
             <div
               key={index}
-              className="p-4 bg-white border rounded-md shadow-md"
+              className="p-4 bg-white border border-slate-200 rounded-md shadow-sm"
             >
               {columns.map((col) => (
                 <div key={col.key} className="mb-2">
-                  <span className="font-semibold text-gray-600">
+                  <span className="font-semibold text-slate-500">
                     {col.label}:
                   </span>{' '}
-                  <span className="text-gray-800">{renderCell(col, row)}</span>
+                  <span className="text-[#062c21]">{renderCell(col, row)}</span>
                 </div>
               ))}
               {(onEdit || onDelete || onAddImage) && (
@@ -194,7 +194,7 @@ const Table = ({
                   {onEdit && (
                     <button
                       onClick={() => onEdit(row)}
-                      className="px-4 py-2 text-white rounded-md bg-edit-btn hover:bg-yellow-600"
+                      className="px-4 py-2 text-[#062c21] bg-amber-400 hover:bg-amber-500 rounded-md font-semibold transition"
                     >
                       Edit
                     </button>
@@ -202,10 +202,10 @@ const Table = ({
                   {onDelete && (
                     <button
                       onClick={() => row.active && onDelete(row)}
-                      className={`px-4 py-2 rounded-md ${
+                      className={`px-4 py-2 rounded-md font-medium transition ${
                         row.active
-                          ? 'bg-red-500 hover:bg-delete-btn text-white'
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          ? 'bg-rose-600 hover:bg-rose-700 text-white'
+                          : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                       }`}
                       disabled={!row.active}
                     >
@@ -215,7 +215,7 @@ const Table = ({
                   {onAddImage && (
                     <button
                       onClick={() => onAddImage(row)}
-                      className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                      className="px-4 py-2 text-amber-300 bg-[#062c21] hover:bg-[#093d2e] rounded-md font-semibold transition"
                     >
                       Add Image
                     </button>
@@ -245,7 +245,7 @@ const renderCell = (col, row) => {
     return (
       <Link
         href={`/pages/customer-management/customer-order-activity?username=${value}`}
-        className="text-blue-500 hover:underline"
+        className="text-[#062c21] font-semibold hover:underline"
       >
         {value}
       </Link>
@@ -255,7 +255,7 @@ const renderCell = (col, row) => {
     return (
       <Link
         href={`/pages/order-management/order-details?orderId=${value}`}
-        className="text-green-500 hover:underline"
+        className="text-[#062c21] font-semibold hover:underline"
       >
         {value}
       </Link>
@@ -293,7 +293,7 @@ const Pagination = ({
       : currentPage * rowsPerPage
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+    <div className="flex flex-wrap items-center justify-center gap-4 mt-4 text-[#062c21]">
       <div className="flex items-center space-x-2">
         <span>Rows per page:</span>
         <select
@@ -302,7 +302,7 @@ const Pagination = ({
             setRowsPerPage(Number(e.target.value))
             setCurrentPage(1)
           }}
-          className="p-1 border rounded-md focus:outline-none"
+          className="p-1 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21]"
         >
           {[5, 10, 25].map((size) => (
             <option key={size} value={size}>
@@ -320,10 +320,10 @@ const Pagination = ({
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
-          className={`px-3 py-1 border rounded-md ${
+          className={`px-3 py-1 border rounded-md transition ${
             currentPage === 1
-              ? 'text-gray-400 border-gray-300'
-              : 'hover:bg-gray-200'
+              ? 'text-slate-400 border-slate-200 bg-slate-50 cursor-not-allowed'
+              : 'border-slate-300 hover:bg-emerald-50'
           }`}
         >
           ◄
@@ -331,10 +331,10 @@ const Pagination = ({
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className={`px-3 py-1 border rounded-md ${
+          className={`px-3 py-1 border rounded-md transition ${
             currentPage === totalPages
-              ? 'text-gray-400 border-gray-300'
-              : 'hover:bg-gray-200'
+              ? 'text-slate-400 border-slate-200 bg-slate-50 cursor-not-allowed'
+              : 'border-slate-300 hover:bg-emerald-50'
           }`}
         >
           ►

@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,28 +60,28 @@ const AddProductImage = ({ onClose, product }) => {
 
   return (
     <div className="p-4">
-      <h1 className="mb-2 text-lg font-bold text-center text-red-700 md:text-xl">Uploaded only 4 images</h1>
+      <h1 className="mb-2 text-lg font-bold text-center text-rose-700 md:text-xl">Uploaded only 4 images</h1>
       
       <div className="mt-5">
-        <h2 className="mb-4 text-base font-semibold md:text-lg">Upload Product Image</h2>
+        <h2 className="mb-4 text-base font-semibold md:text-lg text-[#062c21]">Upload Product Image</h2>
         
         <div className="flex flex-col gap-3 mb-4 sm:flex-row sm:items-center">
           <input
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="block w-full text-sm text-gray-500 file:mr-2 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            className="block w-full text-sm text-slate-500 file:mr-2 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-[#062c21] hover:file:bg-emerald-100 file:rounded-md"
           />
           <div className="flex gap-3">
             <button
               onClick={handleSubmit}
-              className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-blue-700"
+              className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               {loading ? 'Uploading...' : 'Submit'}
             </button>
             <button
               onClick={onClose}
-              className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+              className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
             >
               Cancel
             </button>
@@ -96,8 +95,8 @@ const AddProductImage = ({ onClose, product }) => {
         )}
 
         {uploadedImageUrl && (
-          <div className="pt-4 border-t">
-            <h3 className="mb-2 text-sm font-medium md:text-md">Uploaded Image:</h3>
+          <div className="pt-4 border-t border-slate-200">
+            <h3 className="mb-2 text-sm font-medium md:text-md text-[#062c21]">Uploaded Image:</h3>
             <img src={uploadedImageUrl} alt="Uploaded Product" className="w-full h-auto rounded-md" />
           </div>
         )}
@@ -116,7 +115,7 @@ const AddProductImage = ({ onClose, product }) => {
             ))}
           </div>
         ) : (
-          <p className="text-gray-500">No images found for this product.</p>
+          <p className="text-slate-500">No images found for this product.</p>
         )}
       </div>
     </div>

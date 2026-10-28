@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -80,61 +79,61 @@ const AdminProfilePage = () => {
     <div className="flex flex-col min-h-screen p-2 bg-white">
       {showForm ? (
         <div className="p-6 bg-white rounded shadow-md">
-          <h2 className="mb-4 text-xl font-bold text-add-label"> Admin User</h2>
+          <h2 className="mb-4 text-xl font-bold text-[#062c21]"> Admin User</h2>
 
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <label className="block text-sm font-medium text-[#062c21]">Username</label>
             <input
               type="text"
               value={editData?.username}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
 
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">First Name</label>
+            <label className="block text-sm font-medium text-[#062c21]">First Name</label>
             <input
               type="text"
               value={editData?.firstName}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">Middle Name</label>
+            <label className="block text-sm font-medium text-[#062c21]">Middle Name</label>
             <input
               type="text"
               value={editData?.middleName}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">Last Name</label>
+            <label className="block text-sm font-medium text-[#062c21]">Last Name</label>
             <input
               type="text"
               value={editData?.lastName}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-[#062c21]">Email</label>
             <input
               type="email"
               value={editData?.email}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
           <div className="mb-2">
-            <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+            <label className="block text-sm font-medium text-[#062c21]">Phone Number</label>
             <input
               type="text"
               value={editData?.phoneNumber}
               disabled
-              className="w-full p-3 mb-2 border border-gray-300 rounded cursor-not-allowed"
+              className="w-full p-3 mb-2 border border-slate-300 rounded cursor-not-allowed"
             />
           </div>
 
@@ -143,21 +142,21 @@ const AdminProfilePage = () => {
               type="checkbox"
               checked={editData?.active}
               onChange={handleToggleActive}
-              className="w-5 h-5 mr-2"
+              className="w-5 h-5 mr-2 accent-[#062c21]"
             />
-            <label className="text-sm">Activate</label>
+            <label className="text-sm text-[#062c21]">Activate</label>
           </div>
 
           <div className="flex gap-2">
             <button
               onClick={handleSave}
-              className="px-4 py-2 text-white bg-submit-btn rounded hover:bg-green-700"
+              className="px-4 py-2 text-amber-300 bg-[#062c21] rounded hover:bg-[#093d2e] transition font-semibold"
             >
               Save
             </button>
             <button
               onClick={handleCancel}
-              className="px-4 py-2 text-white bg-cancel-btn rounded hover:bg-gray-600"
+              className="px-4 py-2 text-[#062c21] bg-slate-200 rounded hover:bg-slate-300 transition font-medium"
             >
               Cancel
             </button>
@@ -166,7 +165,7 @@ const AdminProfilePage = () => {
       ) : (
         <>
           {loading && <Loading />}
-          {error && <p className="text-red-500">{error}</p>}
+          {error && <p className="text-rose-600">{error}</p>}
           {!loading && !error && (
             <Table
               columns={Columns}

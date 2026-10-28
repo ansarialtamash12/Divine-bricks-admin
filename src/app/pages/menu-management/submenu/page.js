@@ -181,7 +181,7 @@ const SubMenu = () => {
                 setShowForm(true)
                 setErrors({})
               }}
-              className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               + Add Sub Menu
             </button>
@@ -190,11 +190,11 @@ const SubMenu = () => {
       </div>
       {showForm && (
         <div className="p-4 mb-4 rounded-md">
-          <h2 className="mb-10 text-2xl font-bold text-center text-add-label">
+          <h2 className="mb-10 text-2xl font-bold text-center text-[#062c21]">
             {editMode ? 'Edit Sub Menu' : 'Add Sub Menu'}
           </h2>
           <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-            <label className="block font-medium">Menu Name</label>
+            <label className="block font-medium text-[#062c21]">Menu Name</label>
             {/* Menu Selector */}
             {hasMounted && (
               <Select
@@ -215,10 +215,10 @@ const SubMenu = () => {
               />
             )}
             {errors.selectedMenu && (
-              <p className="mt-1 text-sm text-red-500">{errors.selectedMenu}</p>
+              <p className="mt-1 text-sm text-rose-600">{errors.selectedMenu}</p>
             )}
 
-            <label className="block font-medium">Sub Menu Name</label>
+            <label className="block font-medium text-[#062c21]">Sub Menu Name</label>
 
             <input
               type="text"
@@ -229,15 +229,15 @@ const SubMenu = () => {
                 setErrors((prev) => ({ ...prev, subMenuName: '' }));
               }}
               placeholder="Enter Sub Menu Name"
-              className="w-full px-3 py-2 border border-gray-300 rounded"
+              className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
             />
             {errors.subMenuName && (
-              <p className="mt-1 text-sm text-red-500">{errors.subMenuName}</p>
+              <p className="mt-1 text-sm text-rose-600">{errors.subMenuName}</p>
             )}
 
             {editMode && (
               <>
-                <label className="block font-medium">Sub Menu Page Name</label>
+                <label className="block font-medium text-[#062c21]">Sub Menu Page Name</label>
                 <input
                   type="text"
                   value={formState.subMenuPageName}
@@ -249,9 +249,9 @@ const SubMenu = () => {
                   }
                   placeholder="Enter Sub Menu Page Name"
                   maxLength={25}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                 />
-                <label className="block font-medium">Display Order</label>
+                <label className="block font-medium text-[#062c21]">Display Order</label>
                 <input
                   type="text"
                   value={formState.displayOrder}
@@ -260,7 +260,7 @@ const SubMenu = () => {
                   }
                   placeholder="Enter Display order"
                   maxLength={25}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21]"
                 />
                 <div className="flex items-center">
                   <input
@@ -269,9 +269,9 @@ const SubMenu = () => {
                     onChange={(e) =>
                       setFormState({ ...formState, active: e.target.checked })
                     }
-                    className="w-5 h-5 mr-2 cursor-pointer"
+                    className="w-5 h-5 mr-2 cursor-pointer accent-[#062c21]"
                   />
-                  <label className="text-sm font-medium text-gray-700">
+                  <label className="text-sm font-medium text-[#062c21]">
                     Active
                   </label>
                 </div>
@@ -280,7 +280,7 @@ const SubMenu = () => {
             <div className="flex gap-3">
               <button
                 type="submit"
-                className="px-4 py-2 text-white rounded bg-submit-btn hover:bg-green-600"
+                className="px-4 py-2 text-amber-300 rounded bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
                 disabled={loading}
               >
                 {submitButtonText}
@@ -288,7 +288,7 @@ const SubMenu = () => {
               <button
                 type="button"
                 onClick={resetForm}
-                className="px-4 py-2 text-white rounded bg-cancel-btn hover:bg-gray-600"
+                className="px-4 py-2 text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
               >
                 Cancel
               </button>

@@ -13,26 +13,21 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
-  /* Adjust width of scrollbar */
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #4b5563;
-  /* Dark gray for the thumb */
+  background-color: #94a3b8;      /* slate-400 */
   border-radius: 4px;
-  border: 3px solid #f3f4f6;
-  /* Light border color */
+  border: 3px solid #ffffff;      /* white border (light theme) */
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #5f1603;
-  /* Darker gray on hover */
+  background-color: #062c21;      /* brand emerald on hover */
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #f3f4f6;
-  /* Light gray track */
+  background-color: #f1f5f9;      /* slate-100 (light) */
   border-radius: 10px;
 }
 
-.width-column{
+.width-column {
   width: 12rem;
 }
 .tabel {
@@ -40,18 +35,18 @@ body {
 }
 
 :root {
-  --primary-color: #ffffff;           /* white */
-  --secondary-color: #000000;         /* sidebar black */
-  --tertiary-color: #ff0000;          /* delete btn red */
-  --quaternary-color: #16a34a;        /* submit btn green */
-  --quinary-color: #eab308;           /* edit btn yellow */
-  --senary-color: #6b7280;            /* cancel btn gray */
-  --accent-color: #1685D7;            /* add btn blue */
-  --text-color: #8B5E34;              /* text add level - coffee brown */
-  --tblheader-color: #1685D7;         /* table header blue */
-  --profileicon-color: #000000;       /* profile icon blue */
-  --list-level-text: #565151;         /* list level text - dark gray */
-  --action-color: #1685D7;          /* general action blue (same as accent) */
+  --primary-color: #ffffff;           /* white — keep */
+  --secondary-color: #062c21;         /* sidebar — brand dark emerald */
+  --tertiary-color: #e11d48;          /* delete btn — rose-600 */
+  --quaternary-color: #062c21;        /* submit btn — brand dark emerald */
+  --quinary-color: #fbbf24;           /* edit btn — amber-400 */
+  --senary-color: #64748b;            /* cancel btn — slate-500 */
+  --accent-color: #062c21;            /* add btn — brand dark emerald */
+  --text-color: #062c21;              /* add label — brand dark emerald */
+  --tblheader-color: #062c21;         /* table header — brand dark emerald */
+  --profileicon-color: #062c21;       /* profile icon — brand dark emerald */
+  --list-level-text: #64748b;         /* list level text — slate-500 */
+  --action-color: #062c21;            /* action — brand dark emerald */
 }
 
 .bg-primary {
@@ -59,45 +54,53 @@ body {
 }
 
 .bg-sidebar {
-  background-color: var(--secondary-color); /* sidebar black */
+  background-color: var(--secondary-color); /* brand dark */
 }
 
 .bg-delete-btn {
-  background-color: var(--tertiary-color); /* delete btn red */
+  background-color: var(--tertiary-color); /* rose */
+  color: #ffffff;
 }
 
 .bg-edit-btn {
-  background-color: var(--quinary-color); /* edit btn yellow */
+  background-color: var(--quinary-color); /* amber */
+  color: #062c21;
 }
 
 .bg-submit-btn {
-  background-color: var(--quaternary-color); /* submit btn green */
+  background-color: var(--quaternary-color); /* brand dark */
+  color: #fcd34d;                            /* gold text */
 }
 
 .bg-cancel-btn {
-  background-color: var(--senary-color); /* cancel btn gray */
+  background-color: var(--senary-color); /* slate-500 */
+  color: #ffffff;
 }
 
 .bg-add-btn {
-  background-color: var(--accent-color); /* add btn blue */
+  background-color: var(--accent-color); /* brand dark */
+  color: #fcd34d;                        /* gold text */
 }
 
 .bg-header-tbl {
-  background-color: var(--tblheader-color); /* table header blue */
+  background-color: var(--tblheader-color); /* brand dark */
+  color: #fcd34d;                          /* gold text */
 }
 
 .bg-profile-icon {
-  background-color: var(--profileicon-color); /* profile icon blue */
+  background-color: var(--profileicon-color); /* brand dark */
+  color: #fcd34d;
 }
 
 .text-list-label {
-  color: var(--list-level-text); /* list level text color */
+  color: var(--list-level-text); /* slate-500 */
 }
 
 .text-add-label {
-  color: var(--text-color); /* coffee brown text */
+  color: var(--text-color); /* brand dark */
 }
 
 .bg-action {
-  background-color: var(--action-color); /* general action blue */
+  background-color: var(--action-color); /* brand dark */
+  color: #fcd34d;
 }

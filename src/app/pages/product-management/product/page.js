@@ -118,7 +118,7 @@ const Product = () => {
           {!showForm && !editProduct && !addProductImage && !showProductDetails && (
             <button
               onClick={() => setShowForm(true)}
-              className="px-4 py-2 text-white rounded-md bg-add-btn"
+              className="px-4 py-2 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
               + Add Product
             </button>
@@ -132,17 +132,17 @@ const Product = () => {
       {editProduct && (
         <div className="p-4 mt-4 bg-white rounded shadow">
           <div className="flex items-center justify-center order-1 mb-2 sm:order-2">
-            <button onClick={closeEditForm} className="px-4 py-1 text-sm text-white rounded bg-cancel-btn">
+            <button onClick={closeEditForm} className="px-4 py-1 text-sm text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium">
               Cancel
             </button>
           </div>
-          <div className="flex flex-wrap justify-center mb-4 overflow-x-auto border-b border-gray-300 sm:justify-between sm:overflow-x-hidden ">
+          <div className="flex flex-wrap justify-center mb-4 overflow-x-auto border-b border-slate-300 sm:justify-between sm:overflow-x-hidden ">
 
             <div className="flex order-2 w-full space-x-4 sm:order-1">
               <div
-                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap ${activeTab === 'editProduct'
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-blue-500'
+                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap cursor-pointer ${activeTab === 'editProduct'
+                  ? 'border-[#062c21] text-[#062c21]'
+                  : 'border-transparent text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('editProduct')}
               >
@@ -150,9 +150,9 @@ const Product = () => {
               </div>
 
               <div
-                className={`py-2 text-sm font-medium border-b-2 transition-colors duration- whitespace-nowrap ${activeTab === 'editSimilarProduct'
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-blue-500'
+                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap cursor-pointer ${activeTab === 'editSimilarProduct'
+                  ? 'border-[#062c21] text-[#062c21]'
+                  : 'border-transparent text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('editSimilarProduct')}
               >
@@ -160,9 +160,9 @@ const Product = () => {
               </div>
 
               <div
-                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap ${activeTab === 'editFaq'
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-blue-500'
+                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap cursor-pointer ${activeTab === 'editFaq'
+                  ? 'border-[#062c21] text-[#062c21]'
+                  : 'border-transparent text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('editFaq')}
               >
@@ -170,9 +170,9 @@ const Product = () => {
               </div>
 
               <div
-                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap ${activeTab === 'editSkinInsight'
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-blue-500'
+                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap cursor-pointer ${activeTab === 'editSkinInsight'
+                  ? 'border-[#062c21] text-[#062c21]'
+                  : 'border-transparent text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('editSkinInsight')}
               >
@@ -180,9 +180,9 @@ const Product = () => {
               </div>
 
               <div
-                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap ${activeTab === 'editMetaTags'
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-blue-500'
+                className={`py-2 text-sm font-medium border-b-2 transition-colors duration-300 whitespace-nowrap cursor-pointer ${activeTab === 'editMetaTags'
+                  ? 'border-[#062c21] text-[#062c21]'
+                  : 'border-transparent text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('editMetaTags')}
               >
@@ -213,11 +213,11 @@ const Product = () => {
 
       {showProductDetails && productDetails && (
         <div className="mt-4">
-          <div className="flex flex-wrap justify-center mb-4 border-b border-gray-300 sm:justify-between ">
+          <div className="flex flex-wrap justify-center mb-4 border-b border-slate-300 sm:justify-between ">
             <div className="flex items-center order-1 mb-2 sm:order-2">
               <button
                 onClick={() => setShowProductDetails(false)}
-                className="px-3 py-1 text-sm text-white rounded bg-cancel-btn"
+                className="px-3 py-1 text-sm text-[#062c21] rounded bg-slate-200 hover:bg-slate-300 transition font-medium"
               >
                 Cancel
               </button>
@@ -225,8 +225,8 @@ const Product = () => {
             <div className="flex order-2 space-x-4 sm:order-1">
               <div
                 className={`cursor-pointer whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeTab === 'product'
-                  ? 'border-b-2 border-blue-500 text-blue-500 text-lg'
-                  : 'text-gray-600 hover:text-blue-500'
+                  ? 'border-b-2 border-[#062c21] text-[#062c21] text-lg'
+                  : 'text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('product')}
               >
@@ -235,8 +235,8 @@ const Product = () => {
 
               <div
                 className={`cursor-pointer whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeTab === 'similarProduct'
-                  ? 'border-b-2 border-blue-500 text-blue-500 text-lg'
-                  : 'text-gray-600 hover:text-blue-500'
+                  ? 'border-b-2 border-[#062c21] text-[#062c21] text-lg'
+                  : 'text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('similarProduct')}
               >
@@ -246,8 +246,8 @@ const Product = () => {
 
               <div
                 className={`cursor-pointer whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeTab === 'faq'
-                  ? 'border-b-2 border-blue-500 text-blue-500'
-                  : 'text-gray-600 hover:text-blue-500'
+                  ? 'border-b-2 border-[#062c21] text-[#062c21]'
+                  : 'text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('faq')}
               >
@@ -256,8 +256,8 @@ const Product = () => {
 
               <div
                 className={`cursor-pointer whitespace-nowrap px-4 py-2 text-sm font-medium transition-colors duration-300 ${activeTab === 'skinInsight'
-                  ? 'border-b-2 border-blue-500 text-blue-500'
-                  : 'text-gray-600 hover:text-blue-500'
+                  ? 'border-b-2 border-[#062c21] text-[#062c21]'
+                  : 'text-slate-600 hover:text-[#062c21]'
                   }`}
                 onClick={() => setActiveTab('skinInsight')}
               >
@@ -277,7 +277,7 @@ const Product = () => {
 
           {selectedImageUrl && (
             <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+              className="fixed inset-0 z-50 flex items-center justify-center bg-[#062c21]/80"
               onClick={() => setSelectedImageUrl(null)}
             >
               <div className="relative w-full max-w-3xl px-4" onClick={(e) => e.stopPropagation()}>
@@ -288,7 +288,7 @@ const Product = () => {
                 />
                 <button
                   onClick={() => setSelectedImageUrl(null)}
-                  className="absolute px-3 py-1 text-lg text-black bg-white rounded-full shadow-lg top-2 right-2"
+                  className="absolute px-3 py-1 text-lg text-amber-300 bg-[#062c21] rounded-full shadow-lg top-2 right-2"
                 >
                   ✕
                 </button>
