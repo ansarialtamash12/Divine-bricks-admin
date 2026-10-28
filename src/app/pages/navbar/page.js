@@ -61,21 +61,21 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <nav className="flex items-center justify-between w-full p-6 bg-white sm:p-6 md:p-4">
-      <div className="flex items-center">
-        <h1 className="flex items-center text-lg font-bold text-[#062c21] sm:text-xl md:text-2xl">
+    <nav className="flex items-center justify-between w-full h-[60px] px-3 bg-white sm:px-4 md:px-6">
+      <div className="flex items-center min-w-0">
+        <h1 className="flex items-center min-w-0 text-lg font-bold text-[#062c21] sm:text-xl md:text-2xl">
    <Image
   src="/darkogo.png"
   alt="Zaddy Logo"
   width={120}
   height={40}
   unoptimized 
-  className="object-contain mx-1 sm:mx-2 w-[100px] sm:w-[120px] md:w-[180px] h-auto"
+  className="object-contain mx-1 sm:mx-2 w-[86px] sm:w-[120px] md:w-[180px] h-auto"
 />
         </h1>
       </div>
 
-      <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+      <div className="flex items-center flex-none gap-2 sm:gap-3 md:gap-6">
         <div className="relative cursor-pointer">
           <Bell className="w-5 h-5 text-slate-500 sm:w-6 sm:h-6" />
           <span className="absolute -top-1 -right-1 bg-rose-600 text-white text-[10px] sm:text-xs px-1 py-0 sm:px-1.5 sm:py-0.5 rounded-full">
@@ -88,7 +88,7 @@ const Navbar = () => {
             className="bg-[#062c21] text-amber-300 hover:bg-[#093d2e] transition px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1 sm:gap-2 cursor-pointer text-sm sm:text-base font-semibold"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span>Hi, {adminDetails?.username || "Admin"}</span>
+            <span className="hidden max-w-24 truncate sm:inline">Hi, {adminDetails?.username || "Admin"}</span>
             <Image
               src="/userProfile.png"
               alt="Profile"

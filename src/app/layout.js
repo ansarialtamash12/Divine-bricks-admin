@@ -4,7 +4,7 @@ import { Providers } from "./redux/provider";
 import React from "react";
 
 export const metadata = {
-  title: "Zaddy",
+  title: "Divine Bricks Admin",
   description: "Developed By Pulse Promote",
 };
 

@@ -115,11 +115,11 @@ const AdminLogin = () => {
           {/* <p className="mt-4 text-center text-amber-700 cursor-pointer text-1xl hover:text-[#062c21] hover:underline">
             <Link href="/login/register">Don&rsquo;t have an Account? Register</Link>
           </p> */}
-          <div className="flex justify-center mt-2">
+          {/* <div className="flex justify-center mt-2">
             <Link href="/login/forgot-password" className="text-amber-700 hover:text-[#062c21] hover:underline" passHref>
               Forgot Password?
             </Link>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>

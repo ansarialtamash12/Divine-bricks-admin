@@ -91,26 +91,35 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="fixed z-50 lg:hidden md:top-20 sm:top-20 xs:top-20 left-4">
+      <button
+        type="button"
+        aria-label={mobileSidebarOpen ? 'Close menu' : 'Open menu'}
+        onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+        className="fixed z-[70] left-3 top-[68px] lg:hidden flex items-center justify-center w-10 h-10 bg-white text-[#062c21] rounded-md border border-emerald-200 shadow-md"
+      >
+        {mobileSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+      </button>
+
+      {mobileSidebarOpen && (
         <button
-          onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
-          className="mt-3 bg-white text-[#062c21] rounded-md border border-emerald-200 shadow-sm"
-        >
-          {mobileSidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
-      </div>
+          type="button"
+          aria-label="Close menu overlay"
+          className="fixed inset-0 z-[35] bg-slate-900/30 lg:hidden"
+          onClick={() => setMobileSidebarOpen(false)}
+        />
+      )}
 
       <div
         ref={sidebarRef}
         className={`
-          h-screen p-4 overflow-y-auto bg-white border-r border-emerald-900/10 shadow-sm w-64 custom-scrollbar pt-[50px] pb-[80px]
-          fixed lg:relative top-15  left-0 z-40
+          fixed top-[60px] bottom-0 left-0 z-40 w-64 px-3 py-4 overflow-y-auto bg-white border-r border-emerald-900/10 shadow-lg custom-scrollbar
+          lg:relative lg:top-auto lg:bottom-auto lg:z-auto lg:h-[calc(100dvh-60px)] lg:flex-none lg:shadow-sm
           transition-transform duration-300 ease-in-out
           ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
         <div
-          className="flex items-center justify-between p-2 text-xl font-bold text-[#062c21] rounded cursor-pointer hover:bg-emerald-50/80"
+          className="flex items-center justify-between p-2 pl-12 text-xl font-bold text-[#062c21] rounded cursor-pointer hover:bg-emerald-50/80 lg:pl-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span>Menu</span>
@@ -125,7 +134,8 @@ const Sidebar = () => {
                 return (
                   <div className="mt-2" key={item.menuId}>
                     <div
-                      className="flex items-center justify-between p-2 font-semibold text-[#062c21] rounded-md cursor-pointer group hover:bg-emerald-50/80"
+                      // 👇 CHANGE 2: P-2 ki jagah px-2 py-1.5 kiya taaki horizontal space bache
+                      className="flex items-center justify-between px-2 py-2 font-semibold text-[#062c21] rounded-md cursor-pointer group hover:bg-emerald-50/80"
                       onClick={() =>
                         toggleSubMenu(
                           item.menuId,
@@ -134,15 +144,17 @@ const Sidebar = () => {
                         )
                       }
                     >
-                      <span className="flex items-center gap-3 text-[#062c21]">
-                        {getMenuIcon(item.menuId)}
-                        {item.menuName}
+                      {/* 👇 CHANGE 3: gap-3 se gap-2 kiya aur text-[15px] set kiya */}
+                      <span className="flex items-center gap-2 text-[#062c21] text-[15px] min-w-0">
+                        <span className="shrink-0">{getMenuIcon(item.menuId)}</span>
+                        <span className="truncate">{item.menuName}</span>
                       </span>
+                      
                       {item.subMenu?.length > 0 &&
                         (isOpen ? (
-                          <FaAngleUp className="fill-[#062c21]" />
+                          <FaAngleUp className="fill-[#062c21] shrink-0" />
                         ) : (
-                          <FaAngleDown className="fill-[#062c21]" />
+                          <FaAngleDown className="fill-[#062c21] shrink-0" />
                         ))}
                     </div>
                     {item.subMenu?.length > 0 && isOpen && (

@@ -2,8 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overscroll-behavior: none;
+}
+
 body {
   @apply overflow-hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 .Hello {
