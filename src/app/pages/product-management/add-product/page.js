@@ -782,7 +782,7 @@ const validateForm = () => {
 
                 <label className="text-sm font-medium">New project</label>
               </div>
-              <div className="flex items-center mb-2">
+              {/* <div className="flex items-center mb-2">
                 <input
                   type="checkbox"
                   checked={isBestSeller}
@@ -799,7 +799,7 @@ const validateForm = () => {
                   className="w-5 h-5 mr-2 accent-[#062c21] border-slate-300 rounded focus:ring-[#062c21]"
                 />
                 <label className="text-sm font-medium">Recommended</label>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>

@@ -488,7 +488,7 @@ const EditProduct = ({ product, onClose }) => {
                         />
                         <span className="text-sm md:text-base text-[#062c21]">New Project</span>
                     </label>
-                    <label className="flex items-center space-x-2">
+                    {/* <label className="flex items-center space-x-2">
                         <input
                             type="checkbox"
                             name="isBestSeller"
@@ -507,7 +507,7 @@ const EditProduct = ({ product, onClose }) => {
                             className="w-4 h-4 accent-[#062c21]"
                         />
                         <span className="text-sm md:text-base text-[#062c21]">Recommended</span>
-                    </label>
+                    </label> */}
                 </div>
 
                 {/* Buttons */}
