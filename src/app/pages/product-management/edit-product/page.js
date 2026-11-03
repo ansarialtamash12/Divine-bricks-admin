@@ -196,7 +196,7 @@ const EditProduct = ({ product, onClose }) => {
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 {/* Category */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Category</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Category</label>
                     <input
                         type="category"
                         name="category"
@@ -220,7 +220,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Subcategory Type */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Subcategory Type</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Type</label>
                     <input
                         type="text"
                         name="subCategoryTypeId"
@@ -232,7 +232,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Seller */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Seller</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Agents</label>
                     <select
                         name="seller"
                         value={formData.seller}
@@ -250,7 +250,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Step */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Step</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Transaction Steps</label>
                     <select
                         name="steps"
                         value={formData.steps}
@@ -268,7 +268,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Type of Product */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Type of Product</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Status</label>
                     <select
                         name="typeOfProduct"
                         value={formData.typeOfProduct}
@@ -286,7 +286,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Size */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Size</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Size</label>
                     <select
                         name="size"
                         value={formData.size}
@@ -304,7 +304,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Concern */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Concern</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Features</label>
                     <select
                         name="concern"
                         value={formData.concern}
@@ -322,7 +322,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Ingredient */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Ingredient</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Amenities</label>
                     <select
                         name="ingredient"
                         value={formData.ingredient}
@@ -340,7 +340,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Title */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Title</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Title</label>
                     <input
                         type="text"
                         name="title"
@@ -352,7 +352,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Subtitle */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Subtitle</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Tagline</label>
                     <input
                         type="text"
                         name="subTitle"
@@ -363,7 +363,7 @@ const EditProduct = ({ product, onClose }) => {
                 </div>
                  {/* Address */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Address</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Location</label>
                     <input
                         type="text"
                         name="adress"
@@ -375,7 +375,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* City */}
                  <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">City</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property City</label>
                     <input
                         type="text"
                         name="city"
@@ -391,7 +391,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Stock Quantity */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Stock Quantity</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Available Units</label>
                     <input
                         type="number"
                         name="stock"
@@ -404,7 +404,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* MRP */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">MRP</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Original Listing Price</label>
                     <input
                         type="number"
                         name="mrp"
@@ -416,7 +416,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Price */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Price</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Price</label>
                     <input
                         type="number"
                         name="price"
@@ -444,7 +444,7 @@ const EditProduct = ({ product, onClose }) => {
 
                 {/* Rating */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-[#062c21]">Rating</label>
+                    <label className="block text-sm font-medium text-[#062c21]">Property Rating</label>
                     <input
                         type="text"
                         name="rating"
