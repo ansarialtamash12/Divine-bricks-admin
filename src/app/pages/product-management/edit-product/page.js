@@ -37,6 +37,7 @@ const EditProduct = ({ product, onClose }) => {
         title: '',
         subTitle: '',
         adress: '',
+        city: '',
         stock: '',
         price: '',
         mrp: '',
@@ -65,6 +66,7 @@ const EditProduct = ({ product, onClose }) => {
                 title: product.productName || '',
                 subTitle: product.subName || '',
                 adress: product.adress || '',
+                city: product.city || '',
                 stock: product.stock || '',
                 price: product.price || '',
                 mrp: product.mrp || '',
@@ -143,6 +145,7 @@ const EditProduct = ({ product, onClose }) => {
         title: formData.title,
         subTitle: formData.subTitle,
         adress: formData.adress,
+        city: formData.city,
         rating: formData.rating,
         noOfRating: formData.noOfRating,
         stock: formData.stock,
@@ -370,6 +373,19 @@ const EditProduct = ({ product, onClose }) => {
                     />
                 </div>
 
+                {/* City */}
+                 <div className="md:col-span-1">
+                    <label className="block text-sm font-medium text-[#062c21]">City</label>
+                    <input
+                        type="text"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 mt-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-[#062c21] md:text-base"
+                    />
+                </div>
+
+
 
 
 
@@ -488,6 +504,7 @@ const EditProduct = ({ product, onClose }) => {
                         />
                         <span className="text-sm md:text-base text-[#062c21]">New Project</span>
                     </label>
+
                     {/* <label className="flex items-center space-x-2">
                         <input
                             type="checkbox"
