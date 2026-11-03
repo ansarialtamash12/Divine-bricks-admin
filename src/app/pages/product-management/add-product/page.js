@@ -361,7 +361,7 @@ const AddProduct = ({ onClose, productId }) => {
           }`}
           onClick={() => setActiveTab("addProduct")}
         >
-          Add Product
+          Add Properties
         </div>
 
         {/* Add Specification Tab */}
@@ -438,7 +438,7 @@ const AddProduct = ({ onClose, productId }) => {
       {activeTab === "addProduct" ? (
         <div>
           <h3 className="mb-10 text-2xl font-bold text-center text-[#062c21]">
-            Add Product
+            Add Properties
           </h3>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div>

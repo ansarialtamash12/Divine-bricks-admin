@@ -192,7 +192,7 @@ const EditProduct = ({ product, onClose }) => {
 
     return (
         <div className="p-4 mb-4 rounded">
-            <h3 className="mb-6 text-xl font-bold text-center text-[#062c21] md:text-2xl md:mb-10">Edit Product</h3>
+            <h3 className="mb-6 text-xl font-bold text-center text-[#062c21] md:text-2xl md:mb-10">Edit Properties</h3>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 {/* Category */}
                 <div className="md:col-span-1">

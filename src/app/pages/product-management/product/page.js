@@ -120,7 +120,7 @@ const Product = () => {
               onClick={() => setShowForm(true)}
               className="px-4 py-2 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
-              + Add Product
+              + Add Properties
             </button>
           )}
         </div>
@@ -146,7 +146,7 @@ const Product = () => {
                   }`}
                 onClick={() => setActiveTab('editProduct')}
               >
-                Edit Product
+                Edit Properties
               </div>
 
               <div

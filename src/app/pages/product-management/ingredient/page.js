@@ -131,7 +131,7 @@ const Ingredient = () => {
               }}
               className="px-4 py-2 mt-3 text-white rounded-md bg-add-btn"
             >
-              + Add Ingredient
+              + Add Property Amenities
             </button>
           )}
         </div>
@@ -148,10 +148,10 @@ const Ingredient = () => {
         <div className="p-4 mb-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
-              {editMode ? 'Edit Ingredient' : 'Add Ingredient'}
+              {editMode ? 'Edit Property Amenities' : 'Add Property Amenities'}
             </h2>
             <div>
-              <label className="block font-medium">Ingredient Name</label>
+              <label className="block font-medium">Property Amenities Name</label>
               <input
                 type="text"
                 value={name}
@@ -160,7 +160,7 @@ const Ingredient = () => {
                   setName(limitedValue)
                   setErrors((prev) => ({ ...prev, name: '' }))
                 }}
-                placeholder="Enter Ingredient Name"
+                placeholder="Enter Property Amenities Name"
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34] mt-2"
               />
               {errors.name && (
