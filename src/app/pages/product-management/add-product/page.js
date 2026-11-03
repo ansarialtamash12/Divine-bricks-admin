@@ -45,6 +45,7 @@ const AddProduct = ({ onClose, productId }) => {
   const [description, setDescription] = useState('')
   const [subTitle, setSubTitle] = useState('')
   const [adress, setAdress] = useState('')
+  const [city, setCity] = useState('');
   const [stock, setstock] = useState('')
   const [price, setprice] = useState('')
   const [discountPrice, setdiscountPrice] = useState('')
@@ -146,6 +147,7 @@ const validateForm = () => {
     if (!description.trim()) newErrors.description = 'Description is required'
     if (!subTitle.trim()) newErrors.subTitle = 'Subtitle is required'
     if(!adress.trim()) newErrors.adress = 'Address is required'
+    if(!city.trim()) newErrors.city = 'City is required'
     if (!image) newErrors.image = 'Image is required'
 
     // Numeric validations
@@ -236,6 +238,7 @@ const validateForm = () => {
       title,
       subTitle,
       adress,
+      city,
       description,
       stock,
       price,
@@ -618,9 +621,32 @@ const validateForm = () => {
               }
             }}
             placeholder="Enter Address"
-             className={`w-full px-3 py-2 mt-2 border rounded ${errors.subTitle ? 'border-rose-500' : ''}`}
+             className={`w-full px-3 py-2 mt-2 border rounded ${errors.adress ? 'border-rose-500' : ''}`}
               />
             </div>
+
+            <div>
+  <label className="block text-sm font-medium">
+    City <span className="text-rose-600">*</span>
+  </label>
+  <input
+    type="text"
+    value={city}
+    onChange={(e) => {
+      setCity(e.target.value)
+      if (errors.city) {
+        setErrors((prev) => ({ ...prev, city: '' }))
+      }
+    }}
+    placeholder="Enter City"
+    className={`w-full px-3 py-2 mt-2 border rounded ${errors.city ? 'border-rose-500' : ''}`}
+  />
+  {errors.city && (
+    <p className="text-xs text-rose-600">{errors.city}</p>
+  )}
+</div>
+
+
 
             <div>
               <label className="block text-sm font-medium">
@@ -782,6 +808,7 @@ const validateForm = () => {
 
                 <label className="text-sm font-medium">New project</label>
               </div>
+
               {/* <div className="flex items-center mb-2">
                 <input
                   type="checkbox"
@@ -800,6 +827,7 @@ const validateForm = () => {
                 />
                 <label className="text-sm font-medium">Recommended</label>
               </div> */}
+
             </div>
           </div>
           <div>

@@ -22,6 +22,8 @@ export const Columns = [
   { key: 'concernName', label: 'Concern Name' },
   { key: 'ingredientName', label: 'Ingredient Name' },
   { key: 'subName', label: 'Sub Title' },
+    { key: 'adress', label: 'Address' },  
+  { key: 'city', label: 'City' }, 
   { key: 'rating', label: 'Rating' },
   { key: 'mrp', label: 'MRP'},
   { key: 'price', label: 'Price' },
