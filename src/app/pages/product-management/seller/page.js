@@ -231,7 +231,7 @@ const SellerPage = () => {
               }}
               className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
             >
-              + Add Seller
+              + Add Agent
             </button>
           )}
         </div>
@@ -244,7 +244,7 @@ const SellerPage = () => {
           className="p-4 mb-4 rounded"
         >
           <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">
-            {editMode ? 'Edit Seller' : 'Add Seller'}
+            {editMode ? 'Edit Agent' : 'Add Agent'}
           </h2>
           <div className="grid grid-cols-2 gap-4">
             {/* Country Dropdown */}

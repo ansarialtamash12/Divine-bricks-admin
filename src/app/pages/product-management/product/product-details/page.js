@@ -35,7 +35,7 @@ const ProductDetails = ({ productDetails, activeTab, setSelectedImageUrl }) => {
                     <td className="px-3 py-2 text-left">{productDetails.concernName}</td>
                   </tr>
                   <tr className="bg-white border-b">
-                    <th className="px-3 py-2 font-semibold text-left text-gray-700">Ingredient Name</th>
+                    <th className="px-3 py-2 font-semibold text-left text-gray-700">Property Amenities Name</th>
                     <td className="px-3 py-2 text-left">{productDetails.ingredientName}</td>
                     <th className="px-3 py-2 font-semibold text-left text-gray-700">Price</th>
                     <td className="px-3 py-2 text-left">{productDetails.price}</td>
@@ -61,10 +61,10 @@ const ProductDetails = ({ productDetails, activeTab, setSelectedImageUrl }) => {
               { label: "Category Name", value: productDetails.categoryName },
               { label: "SubCategory Name", value: productDetails.subCategoryName },
               { label: "SubCategory Type", value: productDetails.subCategoryTypeName },
-              { label: "Seller Name", value: productDetails.sellerName },
+              { label: "Agent Name", value: productDetails.sellerName },
               { label: "Size Name", value: productDetails.sizeName },
               { label: "Concern Name", value: productDetails.concernName },
-              { label: "Ingredient Name", value: productDetails.ingredientName },
+              { label: "Property Amenities Name", value: productDetails.ingredientName },
               { label: "Price", value: productDetails.price },
               { label: "Rating", value: productDetails.rating },
               { label: "Discount Price", value: productDetails.discountPrice },

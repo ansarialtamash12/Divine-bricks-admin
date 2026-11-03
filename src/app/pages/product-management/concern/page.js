@@ -134,7 +134,7 @@ const Concern = () => {
             }}
             className="px-4 py-2 mt-3 text-amber-300 rounded-md bg-[#062c21] hover:bg-[#093d2e] transition font-semibold"
           >
-            + Add Concern
+            + Add Property Features
           </button>
         )}
       </div>
@@ -145,10 +145,10 @@ const Concern = () => {
         <div className="p-4 mb-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <h2 className="mb-4 text-2xl font-bold text-center text-[#062c21]">
-              {editMode ? 'Edit Concern' : 'Add Concern'}
+              {editMode ? 'Edit Property Features' : 'Add Property Features'}
             </h2>
             <div>
-              <label className="block font-medium text-[#062c21]">Concern Name</label>
+              <label className="block font-medium text-[#062c21]">Property Features Name</label>
               <input
                 type="text"
                 value={name}
@@ -157,7 +157,7 @@ const Concern = () => {
                   setName(limitedValue)
                   setErrors((prev) => ({ ...prev, name: '' }))
                 }}
-                placeholder="Enter Concern Name"
+                placeholder="Enter Property Features Name"
                 className="w-full p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#062c21] mt-2"
               />
               {errors.name && (

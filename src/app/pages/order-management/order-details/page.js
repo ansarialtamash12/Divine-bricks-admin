@@ -77,11 +77,11 @@ const OrderDetails = () => {
                   <span className="font-semibold text-gray-800">{order.billingAddress}</span>
                 </div>
                 <div className="flex flex-col">
-                  <label className="text-sm font-medium text-gray-500">Seller Name</label>
+                  <label className="text-sm font-medium text-gray-500">Agent Name</label>
                   <span className="font-semibold text-gray-800">{order.sellerName}</span>
                 </div>
                 <div className="flex flex-col">
-                  <label className="text-sm font-medium text-gray-500">Seller Address</label>
+                  <label className="text-sm font-medium text-gray-500">Agent Address</label>
                   <span className="font-semibold text-gray-800">{order.sellerAddress}</span>
                 </div>
                 <div className="flex flex-col">

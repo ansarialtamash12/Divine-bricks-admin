@@ -144,7 +144,7 @@ const TypeOfProduct = () => {
               }}
               className="px-4 py-2 mx-auto mt-3 text-white rounded-md bg-add-btn sm:w-auto sm:mx-0"
             >
-              + Add Type Of Product
+              + Add Property Status
             </button>
 
           )}
@@ -154,11 +154,11 @@ const TypeOfProduct = () => {
       {showForm && (
         <div className="p-4 mb-4 rounded">
           <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
-            {editMode ? 'Edit Type Of Product' : 'Add Type Of Product'}
+            {editMode ? 'Edit Property Status' : 'Add Property Status'}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block mb-3 font-medium">Type of Product Name</label>
+              <label className="block mb-3 font-medium">Property Status Name</label>
               <input
                 type="text"
                 value={name}
@@ -167,21 +167,21 @@ const TypeOfProduct = () => {
                   setName(limitedValue)
                   setFormErrors((prev) => ({ ...prev, name: '' }))
                 }}
-                placeholder="Enter Type Name"
+                placeholder="Enter Property Status Name"
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34]"
               />
               {formErrors.name && <p className="text-sm text-red-500">{formErrors.name}</p>}
             </div>
 
             <div>
-              <label className="block mb-3 font-medium">Type of Product Description</label>
+              <label className="block mb-3 font-medium">Property Status Description</label>
               <textarea
                 value={description}
                 onChange={(e) => {
                   setDescription(e.target.value)
                   setFormErrors((prev) => ({ ...prev, description: '' }))
                 }}
-                placeholder="Enter Type Description"
+                placeholder="Enter Property Status Description"
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E34]"
               />
               {formErrors.description && <p className="text-sm text-red-500">{formErrors.description}</p>}

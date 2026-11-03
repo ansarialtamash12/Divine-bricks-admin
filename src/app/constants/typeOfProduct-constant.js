@@ -7,7 +7,7 @@ export const API_ENDPOINTS = {
 };
 export const Columns = [
     { key: 'id', label: 'S.No.' },
-    { key: 'name', label: 'Product Type Name' },
+    { key: 'name', label: 'Property Status Name' },
     { key: 'description', label: 'Description' },
     { key: 'status', label: 'Status' }
 ];

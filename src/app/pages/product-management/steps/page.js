@@ -147,7 +147,7 @@ const Steps = () => {
             }}
             className="px-4 py-2 mx-auto mt-3 text-white rounded-md bg-add-btn lg:mx-0"
           >
-            + Add Step
+            + Add Transaction Step
           </button>
         )}
       </div>
@@ -157,7 +157,7 @@ const Steps = () => {
       {showForm && (
         <div className="p-4 mb-4 rounded ">
           <h2 className="mb-4 text-2xl font-bold text-center text-add-label">
-            {editMode ? 'Edit Step' : 'Add Step'}
+            {editMode ? 'Edit Transaction Step' : 'Add Transaction Step'}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
